@@ -1,0 +1,137 @@
+section.browseSchemeWrapper {
+  padding: 120px;
+}
+.browseSchemeWrapper .page-heading {
+  font-size: 45px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.browseSchemeWrapper label.heading-label {
+  font-size: 24px;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.browseSchemeWrapper button.btn-primary,
+.browseSchemeWrapper button.btn-outline-primary {
+  font-size: 24px;
+}
+.browseSchemeWrapper .stepper-strip {
+  left: 12px;
+  top: 100%;
+  height: 40px;
+  width: 2px;
+  z-index: 0;
+}
+
+.browseSchemeWrapper .radio-box-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.browseSchemeWrapper .radio-box-wrapper .radio-box {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.browseSchemeWrapper .radio-box-wrapper .radio-box input {
+  display: none;
+}
+
+.browseSchemeWrapper .radio-box-wrapper .radio-box .name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 120px;
+  width: 160px;
+  gap: 12px;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid #cbcbcb;
+  cursor: pointer;
+}
+.browseSchemeWrapper .radio-box-wrapper .radio-box .name.caste {
+  flex-direction: row;
+  height: auto;
+  width: auto;
+  padding: 16px;
+  gap: 16px;
+}
+.browseSchemeWrapper .radio-box-wrapper .radio-box .name svg path {
+  fill: #000;
+}
+.browseSchemeWrapper .radio-box-wrapper .radio-box .name.caste svg path {
+  stroke: #000;
+  fill: none;
+}
+.browseSchemeWrapper
+  .radio-box-wrapper
+  .radio-box
+  .name.caste
+  svg:nth-child(3)
+  path {
+  stroke: none;
+  fill: #c0cdcd;
+}
+.browseSchemeWrapper .radio-box-wrapper .radio-box .name span {
+  font-size: 18px;
+  color: #000000d1;
+}
+
+.browseSchemeWrapper .radio-box-wrapper .radio-box input:checked + .name {
+  border-color: #2279e4;
+}
+.browseSchemeWrapper
+  .radio-box-wrapper
+  .radio-box
+  input:checked
+  + .name
+  svg
+  path {
+  fill: #2279e4;
+}
+.browseSchemeWrapper
+  .radio-box-wrapper
+  .radio-box
+  input:checked
+  + .name.caste
+  svg
+  path {
+  stroke: #2279e4;
+  fill: none;
+}
+.browseSchemeWrapper
+  .radio-box-wrapper
+  .radio-box
+  input:checked
+  + .name.caste
+  svg:nth-child(3)
+  path {
+  stroke: none;
+  fill: #2279e4;
+}
+.browseSchemeWrapper .radio-box-wrapper .radio-box input:checked + .name span {
+  color: #2279e4;
+}
+
+.browseSchemeWrapper .form-control,
+.browseSchemeWrapper .form-select {
+  font-size: 24px;
+  padding: 12px 16px;
+}
+@media (max-width: 1280px) {
+  section.browseSchemeWrapper {
+    padding: 80px;
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  section.browseSchemeWrapper {
+    padding: 40px;
+    padding-top: 80px;
+  }
+}

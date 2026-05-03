@@ -1,0 +1,15 @@
+scheme-simplify-client/node_modules
+saral-sewa/node_modules
+pipeline/db.pckl
+.env
+pipeline/slugs_queue.pckl
+pipeline/bad_references.pckl
+pipeline/processing_queue.pckl
+pipeline/__pycache__
+pipeline/venv_pipeline
+backend/venv_backend
+backend/__pycache__
+backend/GEMINI.md
+backend/.aiexclude
+backend/application_test/node_modules/
+__pycache__

@@ -1,0 +1,31 @@
+footer.footer {
+  background-color: #000000cc;
+  background-image: url(../../../public/imgs/strip-bg.png);
+  background-position: bottom;
+  background-size: cover;
+  padding: 65px 152px 112px;
+  color: #ffffffd1;
+}
+.footer p {
+  font-size: 22px;
+  margin-bottom: 0;
+}
+.footer span:not(:last-child) {
+  margin-bottom: 28px;
+}
+.footer span,
+.footer a {
+  color: #ffffffd1;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  footer.footer {
+    padding: 40px 20px;
+  }
+  .footer p {
+    font-size: 22px;
+  }
+  .footer span:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}

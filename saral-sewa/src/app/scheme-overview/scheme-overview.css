@@ -1,0 +1,580 @@
+.hero-section {
+  padding: 80px;
+  padding-top: 120px;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../../../public/imgs/hero-bg.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-section .hero-text {
+  width: 100%;
+  padding: 40px;
+  background-image: url(../../../public/imgs/scheme-info-bg-img.png);
+  background-position: center;
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px #000000b2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+  gap: 20px;
+  height: calc(100vh - 200px);
+  border-radius: 20px;
+}
+.hero-section .hero-text h1 {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0;
+  color: #fff;
+  text-align: center;
+}
+.hero-section .hero-text div {
+  border: 2px solid #f3f3f3;
+  background-color: #00000066;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 20px 32px;
+  font-size: 20px;
+  gap: 10px;
+  color: #fff;
+}
+.hero-section .hero-text button {
+  padding: 16px 74px;
+  font-size: 24px;
+}
+section.scheme-overview-detail {
+  padding: 80px;
+  padding-top: 0;
+}
+section.scheme-overview-detail .saral-authorized {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #2279e4;
+  gap: 12px;
+  font-size: 20px;
+  border-radius: 999px;
+  width: max-content;
+  margin-bottom: 48px;
+}
+section.scheme-overview-detail h2 {
+  font-size: 45px;
+  margin-bottom: 36px;
+}
+section.scheme-overview-detail .application-info p {
+  font-size: 24px;
+  color: #000;
+  margin-bottom: 8px;
+}
+section.scheme-overview-detail .application-info {
+  font-size: 20px;
+  color: #1e1e1ebd;
+}
+section.scheme-overview-detail .scheme-step-box {
+  border: 1px solid #c8c8c8;
+  padding: 24px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+section.scheme-overview-detail .scheme-step-box:not(:last-child) {
+  margin-bottom: 32px;
+}
+section.scheme-overview-detail .scheme-step-box .step-number {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+section.scheme-overview-detail .scheme-step-box .step-name {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+section.scheme-overview-detail .scheme-step-box .step-desc {
+  font-size: 18px;
+  color: #1e1e1ea1;
+}
+section.scheme-overview-detail .scheme-step-box::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateX(-50%);
+}
+section.scheme-overview-detail .scheme-step-box:first-child:before {
+  top: 20px;
+}
+section.scheme-overview-detail .scheme-step-box:last-child:before {
+  top: calc(100% - 40px);
+}
+section.scheme-overview-detail .vr-line {
+  width: 1px;
+  height: 100%;
+  background-color: #bcbcbc;
+  float: right;
+}
+section.scheme-overview-detail .rejection-reason-wrapper {
+  margin-block: 30px;
+}
+
+section.scheme-overview-detail .rejection-reason-wrapper .rejection-reason {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px;
+}
+section.scheme-overview-detail
+  .rejection-reason-wrapper
+  .rejection-reason:not(:last-child) {
+  border-bottom: 1px solid #00000040;
+}
+section.scheme-overview-detail
+  .rejection-reason-wrapper
+  .rejection-reason
+  .rejection-name {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+section.scheme-overview-detail
+  .rejection-reason-wrapper
+  .rejection-reason
+  .rejection-desc {
+  font-size: 18px;
+  color: #1e1e1ea1;
+}
+
+section.scheme-overview-detail .scheme-input-container {
+  position: relative;
+  width: 100%;
+  box-shadow: 0px 0px 26px 0px #00000017;
+  border-radius: 10px;
+  margin-bottom: 32px;
+}
+section.scheme-overview-detail .scheme-input-container input {
+  width: 100%;
+  padding: 20px 24px 20px 48px;
+  border: 1px solid var(--primary-color);
+  font-size: 20px;
+  color: #000;
+  border-radius: 10px;
+}
+section.scheme-overview-detail .scheme-input-container svg {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+section.scheme-overview-detail #faqAccordion .accordion-item {
+  border: 0;
+}
+section.scheme-overview-detail #faqAccordion .accordion-item .accordion-button {
+  font-size: 18px;
+  padding: 24px 8px;
+}
+section.scheme-overview-detail #faqAccordion .accordion-item:not(:last-child) {
+  border-bottom: 1px solid #00000040;
+}
+section.scheme-overview-detail .include-box {
+  box-shadow: 0px 0px 15px 0px #00000040;
+  border-radius: 20px;
+  padding: 24px;
+}
+section.scheme-overview-detail .include-box h5 {
+  margin-bottom: 32px;
+}
+section.scheme-overview-detail .include-box span {
+  font-size: 18px;
+}
+section.scheme-overview-detail .include-box .payment-condition {
+  background-color: #ebf4ff;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font-size: 14px;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+}
+section.scheme-overview-detail .include-box button {
+  font-size: 24px;
+}
+#checkEligibilityModal .modal-dialog {
+  min-width: 80vw;
+}
+
+@media (max-width: 1280px) {
+  .hero-section {
+    padding: 64px;
+    padding-top: 120px;
+    height: auto;
+  }
+
+  .hero-section .hero-text {
+    padding: 32px;
+    height: auto;
+  }
+  .hero-section .hero-text h1 {
+    font-size: 36px;
+  }
+  .hero-section .hero-text div {
+    font-size: 18px;
+  }
+  .hero-section .hero-text button {
+    font-size: 22px;
+  }
+  section.scheme-overview-detail {
+    padding: 64px;
+  }
+  section.scheme-overview-detail .saral-authorized {
+    padding: 14px;
+    font-size: 16px;
+  }
+  section.scheme-overview-detail h2 {
+    font-size: 40px;
+    margin-bottom: 36px;
+  }
+  section.scheme-overview-detail .application-info p {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 8px;
+  }
+  section.scheme-overview-detail .application-info {
+    font-size: 20px;
+    color: #1e1e1ebd;
+  }
+  section.scheme-overview-detail .scheme-step-box {
+    border: 1px solid #c8c8c8;
+    padding: 24px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  section.scheme-overview-detail .scheme-step-box:not(:last-child) {
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .scheme-step-box .step-number {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+  section.scheme-overview-detail .scheme-step-box .step-name {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  section.scheme-overview-detail .scheme-step-box .step-desc {
+    font-size: 18px;
+    color: #1e1e1ea1;
+  }
+  section.scheme-overview-detail .scheme-step-box::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateX(-50%);
+  }
+  section.scheme-overview-detail .scheme-step-box:first-child:before {
+    top: 20px;
+  }
+  section.scheme-overview-detail .scheme-step-box:last-child:before {
+    top: calc(100% - 40px);
+  }
+  section.scheme-overview-detail .vr-line {
+    width: 1px;
+    height: 100%;
+    background-color: #bcbcbc;
+    float: right;
+  }
+  section.scheme-overview-detail .rejection-reason-wrapper {
+    margin-block: 30px;
+  }
+
+  section.scheme-overview-detail .rejection-reason-wrapper .rejection-reason {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+  }
+  section.scheme-overview-detail
+    .rejection-reason-wrapper
+    .rejection-reason:not(:last-child) {
+    border-bottom: 1px solid #00000040;
+  }
+  section.scheme-overview-detail
+    .rejection-reason-wrapper
+    .rejection-reason
+    .rejection-name {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  section.scheme-overview-detail
+    .rejection-reason-wrapper
+    .rejection-reason
+    .rejection-desc {
+    font-size: 18px;
+    color: #1e1e1ea1;
+  }
+
+  section.scheme-overview-detail .scheme-input-container {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 0px 26px 0px #00000017;
+    border-radius: 10px;
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .scheme-input-container input {
+    width: 100%;
+    padding: 20px 24px 20px 48px;
+    border: 1px solid var(--primary-color);
+    font-size: 20px;
+    color: #000;
+    border-radius: 10px;
+  }
+  section.scheme-overview-detail .scheme-input-container svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  section.scheme-overview-detail #faqAccordion .accordion-item {
+    border: 0;
+  }
+  section.scheme-overview-detail
+    #faqAccordion
+    .accordion-item
+    .accordion-button {
+    font-size: 18px;
+    padding: 24px 8px;
+  }
+  section.scheme-overview-detail
+    #faqAccordion
+    .accordion-item:not(:last-child) {
+    border-bottom: 1px solid #00000040;
+  }
+  section.scheme-overview-detail .include-box {
+    box-shadow: 0px 0px 15px 0px #00000040;
+    border-radius: 20px;
+    padding: 24px;
+  }
+  section.scheme-overview-detail .include-box h5 {
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .include-box span {
+    font-size: 18px;
+  }
+  section.scheme-overview-detail .include-box .payment-condition {
+    background-color: #ebf4ff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+  }
+  section.scheme-overview-detail .include-box button {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 20px;
+    padding-top: 88px;
+    height: auto;
+  }
+
+  .hero-section .hero-text {
+    padding: 32px;
+    height: auto;
+  }
+  .hero-section .hero-text h1 {
+    font-size: 24px;
+  }
+  .hero-section .hero-text div {
+    border: 1px solid #f3f3f3;
+    padding: 12px;
+    font-size: 14px;
+    gap: 6px;
+  }
+  .hero-section .hero-text button {
+    padding: 16px 74px;
+    font-size: 18px;
+    width: 100%;
+  }
+  .hero-section .hero-text button svg {
+    width: 24px;
+  }
+  section.scheme-overview-detail {
+    padding: 40px 20px;
+    padding-top: 0;
+  }
+  section.scheme-overview-detail .saral-authorized {
+    padding: 12px;
+    gap: 8px;
+    font-size: 14px;
+    width: auto;
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .saral-authorized svg {
+    width: 28px;
+  }
+  section.scheme-overview-detail h2 {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+  section.scheme-overview-detail .application-info p {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 8px;
+  }
+  section.scheme-overview-detail .application-info {
+    font-size: 20px;
+    color: #1e1e1ebd;
+  }
+  section.scheme-overview-detail .scheme-step-box {
+    border: 1px solid #c8c8c8;
+    padding: 24px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  section.scheme-overview-detail .scheme-step-box:not(:last-child) {
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .scheme-step-box .step-number {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+  }
+  section.scheme-overview-detail .scheme-step-box .step-name {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  section.scheme-overview-detail .scheme-step-box .step-desc {
+    font-size: 18px;
+    color: #1e1e1ea1;
+  }
+  section.scheme-overview-detail .scheme-step-box::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateX(-50%);
+  }
+  section.scheme-overview-detail .scheme-step-box:first-child:before {
+    top: 20px;
+  }
+  section.scheme-overview-detail .scheme-step-box:last-child:before {
+    top: calc(100% - 40px);
+  }
+  section.scheme-overview-detail .vr-line {
+    width: 1px;
+    height: 100%;
+    background-color: #bcbcbc;
+    float: right;
+  }
+  section.scheme-overview-detail .rejection-reason-wrapper {
+    margin-block: 30px;
+  }
+
+  section.scheme-overview-detail .rejection-reason-wrapper .rejection-reason {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+  }
+  section.scheme-overview-detail
+    .rejection-reason-wrapper
+    .rejection-reason:not(:last-child) {
+    border-bottom: 1px solid #00000040;
+  }
+  section.scheme-overview-detail
+    .rejection-reason-wrapper
+    .rejection-reason
+    .rejection-name {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  section.scheme-overview-detail
+    .rejection-reason-wrapper
+    .rejection-reason
+    .rejection-desc {
+    font-size: 18px;
+    color: #1e1e1ea1;
+  }
+
+  section.scheme-overview-detail .scheme-input-container {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 0px 26px 0px #00000017;
+    border-radius: 10px;
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .scheme-input-container input {
+    width: 100%;
+    padding: 20px 24px 20px 48px;
+    border: 1px solid var(--primary-color);
+    font-size: 20px;
+    color: #000;
+    border-radius: 10px;
+  }
+  section.scheme-overview-detail .scheme-input-container svg {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  section.scheme-overview-detail #faqAccordion .accordion-item {
+    border: 0;
+  }
+  section.scheme-overview-detail
+    #faqAccordion
+    .accordion-item
+    .accordion-button {
+    font-size: 18px;
+    padding: 24px 8px;
+  }
+  section.scheme-overview-detail
+    #faqAccordion
+    .accordion-item:not(:last-child) {
+    border-bottom: 1px solid #00000040;
+  }
+  section.scheme-overview-detail .include-box {
+    box-shadow: 0px 0px 15px 0px #00000040;
+    border-radius: 20px;
+    padding: 24px;
+  }
+  section.scheme-overview-detail .include-box h5 {
+    margin-bottom: 32px;
+  }
+  section.scheme-overview-detail .include-box span {
+    font-size: 18px;
+  }
+  section.scheme-overview-detail .include-box .payment-condition {
+    background-color: #ebf4ff;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+  }
+  section.scheme-overview-detail .include-box button {
+    font-size: 24px;
+  }
+}

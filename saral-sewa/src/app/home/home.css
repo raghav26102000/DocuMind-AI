@@ -1,0 +1,845 @@
+.homePageWrapper .hero-section {
+  padding: 60px 108px;
+  padding-top: 80px;
+  position: relative;
+  background: linear-gradient(180deg, #e3ffeb 0%, #f5faff 100%);
+}
+.homePageWrapper .hero-section .current-scheme-status {
+  background-color: #f1f7ff;
+  border-radius: 20px;
+  padding: 34px;
+  margin-top: 60px;
+}
+.homePageWrapper .hero-section .current-scheme-status.md {
+  display: none;
+}
+.homePageWrapper .hero-section .current-scheme-status .scheme-info img {
+  width: 138px;
+  height: 121px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+.homePageWrapper .hero-section .current-scheme-status .scheme-info h2 {
+  color: #000000d1;
+}
+.homePageWrapper .hero-section .current-scheme-status p,
+.homePageWrapper .hero-section .current-scheme-status a {
+  color: #000000d1;
+  font-size: 20px;
+  text-decoration: none;
+}
+.homePageWrapper .hero-section .current-scheme-status .current-scheme-action {
+  padding: 16px 24px;
+  color: #000000d1;
+  border: 1px solid;
+  border-color: #ff8e8e;
+  border-radius: 10px;
+}
+.homePageWrapper .hero-section .hero-text {
+  animation: heroAnimation 0.8s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+}
+.homePageWrapper .hero-section .hero-text .hero-approval-rate {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  background-color: #ecf4ff;
+  border-radius: 99px;
+  padding: 12px 16px;
+}
+.homePageWrapper .hero-section .hero-text .hero-approval-rate span {
+  font-size: 24px;
+  color: #000000d1;
+}
+.homePageWrapper .hero-section .hero-text h1 {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 100%;
+  margin-block: 26px 32px;
+  color: #000000d1;
+  text-align: center;
+}
+.homePageWrapper .hero-section .hero-text .scheme-input-container {
+  position: relative;
+  width: 50%;
+  margin-bottom: 27px;
+}
+.homePageWrapper .hero-section .hero-text .scheme-input-container input {
+  width: 100%;
+  padding: 20px 24px 20px 48px;
+  border: 1px solid var(--primary-color);
+  font-size: 20px;
+  color: #000;
+  border-radius: 10px;
+}
+.homePageWrapper .hero-section .hero-text .stats-wrapper {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 38px;
+}
+.homePageWrapper .hero-section .hero-text .stats-wrapper .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-inline: 20px 60px;
+  border-right: 1px solid #1e1e1eb2;
+}
+.homePageWrapper .hero-section .hero-text .stats-wrapper .stat:last-child {
+  border: 0;
+  padding-right: 20px;
+}
+.homePageWrapper .hero-section .hero-text .stats-wrapper .stat .stat-value {
+  font-size: 35px;
+  color: #000000cc;
+}
+.homePageWrapper .hero-section .hero-text .stats-wrapper .stat .stat-label {
+  font-size: 16px;
+  color: #000000cc;
+}
+.homePageWrapper .hero-section .hero-text button.btn-primary {
+  padding: 12px 36px;
+  font-size: 24px;
+}
+.homePageWrapper .search-list-wrapper {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 50;
+  margin-top: 8px;
+}
+.homePageWrapper .search-list-wrapper .error {
+  padding: 16px;
+  color: #dc3545;
+  text-align: center;
+}
+.homePageWrapper .search-list-wrapper .no-data {
+  padding: 16px;
+  text-align: center;
+  color: #6c757d;
+}
+.homePageWrapper .search-list-wrapper .search-list-item {
+  padding: 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background-color 0.2s;
+}
+.homePageWrapper .search-list-wrapper .search-list-item:hover {
+  background-color: #f8f9fa;
+}
+
+.homePageWrapper .search-list-wrapper .search-list-item h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.homePageWrapper .search-list-wrapper .search-list-item p {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.homePageWrapper .search-list-wrapper .search-list-item .badge-state {
+  background-color: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 8px;
+}
+.homePageWrapper .search-list-wrapper .search-list-item .badge-category {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  padding: 4px 8px;
+}
+.homePageWrapper .search-list-wrapper .search-list-item .badge-department {
+  background-color: #f5f5f5;
+  color: #424242;
+  padding: 4px 8px;
+}
+.homePageWrapper .search-list-wrapper .search-list-item .badge-tag {
+  background-color: #f3e5f5;
+  color: #7b1fa2;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+}
+.homePageWrapper .search-list-wrapper .search-list-item .badge-more-tag {
+  background-color: #f5f5f5;
+  color: #757575;
+  padding: 2px 6px;
+  font-size: 0.7rem;
+}
+.homePageWrapper .hero-bg-1,
+.homePageWrapper .hero-bg-2 {
+  position: absolute;
+  width: 30%;
+  height: 40%;
+}
+.homePageWrapper .hero-bg-1 {
+  top: 0;
+  left: 0;
+  transform: rotate(180deg);
+}
+.homePageWrapper .hero-bg-2 {
+  right: 0;
+  bottom: 0;
+}
+
+@keyframes heroAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.homePageWrapper section.scheme-for {
+  background: var(--primary-color);
+  background-image: url(../../../public/imgs/strip-bg.png);
+  background-position: center;
+  background-size: cover;
+  padding: 65px 152px 112px;
+}
+.homePageWrapper section.scheme-for h2 {
+  margin-bottom: 42px;
+  color: #ffffffd1;
+}
+.homePageWrapper section.scheme-for button {
+  padding: 16px 52px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #000000cc;
+  font-size: 24px;
+  border: 0;
+  margin-bottom: 42px;
+}
+.homePageWrapper section.scheme-for .user-type-card {
+  background-color: #fff;
+  padding: 16px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.homePageWrapper section.scheme-for .user-type-card img {
+  width: 50%;
+  height: auto;
+}
+.homePageWrapper section.scheme-for .user-type-card .card-text {
+  display: flex;
+  flex-direction: column;
+}
+.homePageWrapper section.scheme-for .user-type-card .card-text .scheme-number {
+  font-size: 45px;
+  line-height: 1;
+  color: #000000cc;
+}
+.homePageWrapper section.scheme-for .user-type-card .card-text .scheme-user {
+  font-size: 20px;
+  line-height: 1;
+  color: #000000cc;
+}
+.homePageWrapper section.explore-scheme {
+  padding: 98px 40px 112px;
+}
+.homePageWrapper section.explore-scheme .filter-wrapper {
+  box-shadow: 0px 0px 26px 0px #00000017;
+  border: 1px solid #d0cdcd;
+  padding: 9px 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  color: #1e1e1eb2;
+}
+.homePageWrapper section.explore-scheme .filter-wrapper div {
+  gap: 24px;
+}
+.homePageWrapper section.explore-scheme .filter-wrapper div a.nav-link.active {
+  color: #1976d2;
+  position: relative;
+}
+.homePageWrapper
+  section.explore-scheme
+  .filter-wrapper
+  div
+  a.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -24px;
+  height: 2px;
+  width: 100%;
+  background-color: #1976d2;
+  border-radius: 9px;
+}
+.homePageWrapper section.explore-scheme .filter-wrapper .nav-link {
+  --bs-nav-link-color: #1e1e1eb2 !important;
+}
+.homePageWrapper section.explore-scheme .filter-wrapper .nav-link:hover {
+  --bs-nav-link-hover-color: #1e1e1eb2 !important;
+}
+.homePageWrapper section.explore-scheme .filter-wrapper .dropdown-toggle {
+  color: #1e1e1eb2 !important;
+}
+.homePageWrapper section.explore-scheme .filter-dropdown p {
+  color: #00000087;
+  font-size: 20px;
+}
+.homePageWrapper section.explore-scheme .filter-dropdown label {
+  color: #000000cc;
+  font-size: 18px;
+}
+.homePageWrapper section.explore-scheme .scheme-card {
+  box-shadow: 0px 0px 10px 0px #00000040;
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.homePageWrapper section.explore-scheme .scheme-card img {
+  width: auto;
+  min-width: 100%;
+  height: 228px;
+  object-fit: cover;
+}
+.homePageWrapper section.explore-scheme .scheme-card .scheme-text {
+  padding: 12px 16px;
+}
+.homePageWrapper
+  section.explore-scheme
+  .scheme-card
+  .scheme-text
+  .scheme-title {
+  font-size: 20px;
+  color: #000000d1;
+  max-width: 100%;
+  margin-bottom: 8px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.homePageWrapper section.explore-scheme .scheme-card .scheme-text .scheme-desc {
+  font-size: 14px;
+  color: #000000d1;
+  max-width: 100%;
+  line-height: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.homePageWrapper
+  section.explore-scheme
+  .scheme-card
+  .scheme-text
+  .scheme-place {
+  font-size: 14px;
+  line-height: 1;
+  color: #000000d1;
+}
+.homePageWrapper section.explore-scheme .scheme-card .scheme-text .scheme-mode {
+  color: #fff;
+  font-size: 14px;
+  background-color: #17b042;
+  padding: 8px 16px;
+  border-radius: 999px;
+  width: max-content;
+}
+.homePageWrapper
+  section.explore-scheme
+  .scheme-card
+  .scheme-text
+  .scheme-mode.offline-mode {
+  background-color: #db8e08;
+}
+
+.homePageWrapper
+  section.explore-scheme
+  .scheme-card
+  .scheme-text
+  .scheme-tag-wrapper::-webkit-scrollbar {
+  height: 2px;
+}
+.homePageWrapper section.benefits-section {
+  padding: 65px 152px 112px;
+}
+.homePageWrapper section.benefits-section h2 {
+  margin-bottom: 98px;
+  color: #000000d1;
+}
+.homePageWrapper section.benefits-section svg.wavy-svg {
+  margin-bottom: 8px;
+  width: 100%;
+}
+.homePageWrapper section.benefits-section .benefit-card {
+  position: relative;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  border-radius: 50%;
+  padding: 40px;
+  padding-bottom: 80px;
+  margin-inline: 12px;
+  background: linear-gradient(
+    180deg,
+    #d6e8ff 0%,
+    rgba(255, 255, 255, 0.24) 100%
+  );
+}
+.homePageWrapper
+  section.benefits-section
+  .col-md-6:nth-child(even)
+  .benefit-card {
+  background: linear-gradient(180deg, #fbfdff 0%, #dcebff 100%);
+}
+
+.homePageWrapper section.benefits-section .benefit-card .benefit-text {
+  display: flex;
+  flex-direction: column;
+}
+.homePageWrapper
+  section.benefits-section
+  .benefit-card
+  .benefit-text
+  span.benefit-title {
+  font-size: 22px;
+  line-height: 100%;
+  color: #000000d1;
+  margin-bottom: 12px;
+}
+.homePageWrapper
+  section.benefits-section
+  .benefit-card
+  .benefit-text
+  span.benefit-desc {
+  font-size: 18px;
+  line-height: 100%;
+  color: #000000d1;
+  text-align: justify;
+}
+.homePageWrapper section.benefits-section button.btn {
+  padding: 12px 56px !important;
+  font-size: 24px;
+}
+.homePageWrapper section.key-features {
+  padding: 65px 152px 112px;
+}
+.homePageWrapper section.key-features h2 {
+  margin-bottom: 102px;
+  color: #000000d1;
+}
+.homePageWrapper section.key-features .key-feature-box {
+  padding-block: 24px;
+  border: 1px solid #d0cdcd;
+  border-radius: 10px;
+}
+.homePageWrapper section.key-features .key-feature-box:not(:last-child) {
+  margin-bottom: 24px;
+}
+.homePageWrapper section.key-features .key-feature-box:hover div {
+  position: relative;
+}
+.homePageWrapper section.key-features .key-feature-box:hover div:before {
+  content: "";
+  height: 100%;
+  width: 8px;
+  border-radius: 0 18px 18px 0;
+  background-color: var(--primary-color);
+  position: absolute;
+  top: -2px;
+  left: 0;
+  bottom: -2px;
+}
+.homePageWrapper section.key-features .key-feature-box div {
+  padding-inline: 20px;
+}
+.homePageWrapper section.key-features .key-feature-box div p {
+  font-size: 22px;
+  color: #000000d1;
+  line-height: 1;
+  margin-bottom: 11px;
+}
+.homePageWrapper section.key-features .key-feature-box div span {
+  font-size: 18px;
+  color: #000000d1;
+  line-height: 1;
+}
+.homePageWrapper section.key-features img {
+  max-height: 514px;
+  max-width: 100%;
+}
+.homePageWrapper section.about-us {
+  padding: 65px 152px 112px;
+  background: linear-gradient(
+    180deg,
+    #dbebff 0%,
+    rgba(222, 227, 255, 0.34) 100%
+  );
+}
+.homePageWrapper section.about-us h2 {
+  margin-bottom: 36px;
+  color: #000000d1;
+}
+.homePageWrapper section.about-us p {
+  font-size: 24px;
+  line-height: 100%;
+  margin-bottom: 24px;
+  color: #000000d1;
+  text-align: justify;
+}
+.homePageWrapper section.about-us button.btn-outline-primary {
+  padding: 16px 49px;
+  font-size: 24px;
+}
+.homePageWrapper section.faq {
+  padding: 65px 152px 112px;
+}
+.homePageWrapper section.faq h2 {
+  margin-bottom: 108px;
+  color: #000000d1;
+}
+.homePageWrapper section.faq img {
+  width: 100%;
+  height: auto;
+}
+.homePageWrapper section.faq .accordion:not(:last-child) {
+  margin-bottom: 34px;
+}
+.homePageWrapper section.faq .accordion-button {
+  font-size: 18px;
+}
+.homePageWrapper section.scheme-categories {
+  padding: 65px 40px;
+}
+.homePageWrapper section.scheme-categories .category-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 16px;
+  width: 269px;
+}
+.homePageWrapper
+  section.scheme-categories
+  .category-wrapper
+  .scheme-img-wrapper {
+  width: 100%;
+  height: 212px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.homePageWrapper
+  section.scheme-categories
+  .category-wrapper
+  .scheme-img-wrapper
+  .scheme-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.homePageWrapper section.scheme-categories .category-wrapper .scheme-count {
+  color: #2279e4;
+  font-size: 16px;
+}
+.homePageWrapper section.scheme-categories .category-wrapper .category-name {
+  color: #000;
+  font-size: 18px;
+}
+@media (max-width: 1280px) {
+  .homePageWrapper .hero-section {
+    gap: 32px;
+    padding: 40px 40px;
+    padding-top: 80px;
+  }
+
+  .homePageWrapper .hero-section .current-scheme-status {
+    padding: 24px;
+    margin-top: 54px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .scheme-info img {
+    width: 138px;
+    height: 121px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .scheme-info h2 {
+    margin-bottom: 16px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status p,
+  .homePageWrapper .hero-section .current-scheme-status a {
+    font-size: 16px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .current-scheme-action {
+    padding: 12px 16px;
+  }
+  .homePageWrapper .hero-section .hero-text .hero-approval-rate {
+    gap: 16px;
+    padding: 8px 12px;
+  }
+  .homePageWrapper .hero-section .hero-text .hero-approval-rate span {
+    font-size: 18px;
+  }
+  .homePageWrapper .hero-section .hero-text h1 {
+    font-size: 36px;
+    margin-block: 26px 32px;
+    color: #000000d1;
+    text-align: center;
+  }
+  .homePageWrapper .hero-section .hero-text .scheme-input-container input {
+    padding: 16px 48px 16px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1048px) {
+  .homePageWrapper .hero-section {
+    gap: 32px;
+    padding: 40px;
+    padding-top: 80px;
+  }
+
+  .homePageWrapper .hero-section .current-scheme-status {
+    padding: 24px;
+    margin-top: 32px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .scheme-info img {
+    width: 138px;
+    height: 121px;
+    border-radius: 10px;
+    margin-right: 20px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .scheme-info h2 {
+    margin-bottom: 16px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status p,
+  .homePageWrapper .hero-section .current-scheme-status a {
+    font-size: 16px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .current-scheme-action {
+    padding: 12px 16px;
+  }
+  .homePageWrapper .hero-section .hero-text .hero-approval-rate {
+    gap: 16px;
+    padding: 8px 12px;
+  }
+  .homePageWrapper .hero-section .hero-text .hero-approval-rate span {
+    font-size: 18px;
+  }
+  .homePageWrapper .hero-section .hero-text h1 {
+    font-size: 28px;
+    margin-block: 20px 24px;
+    text-align: left;
+  }
+  .homePageWrapper .hero-section .hero-text .scheme-input-container input {
+    padding: 12px 48px 12px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 18px;
+  }
+  .current-scheme-status {
+    display: none;
+  }
+  .current-scheme-status.md {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .homePageWrapper .hero-section {
+    padding: 40px 20px;
+  }
+
+  .homePageWrapper .hero-section .current-scheme-status {
+    padding: 12px 16px;
+    margin-top: 60px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .scheme-info img {
+    width: auto;
+    height: auto;
+    margin-right: 12px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status .scheme-info h2 {
+    font-size: 18px;
+  }
+  .homePageWrapper .hero-section .current-scheme-status p,
+  .homePageWrapper .hero-section .current-scheme-status a {
+    font-size: 16px;
+  }
+  .homePageWrapper section.scheme-for {
+    padding: 40px 20px;
+  }
+  .homePageWrapper section.scheme-for h2 {
+    margin-bottom: 24px;
+  }
+  .homePageWrapper section.scheme-for button {
+    padding: 16px;
+    width: 100%;
+    font-size: 18px;
+    border: 0;
+    margin-bottom: 32px;
+  }
+  .homePageWrapper section.scheme-for .user-type-card {
+    background-color: #fff;
+    padding: 16px;
+    gap: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  .homePageWrapper section.scheme-for .user-type-card img {
+    width: 40%;
+  }
+  .homePageWrapper section.scheme-for .user-type-card .card-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .homePageWrapper
+    section.scheme-for
+    .user-type-card
+    .card-text
+    .scheme-number {
+    font-size: 32px;
+  }
+  .homePageWrapper section.scheme-for .user-type-card .card-text .scheme-user {
+    font-size: 16px;
+  }
+  .homePageWrapper section.explore-scheme {
+    padding: 40px 20px;
+  }
+  .homePageWrapper section.explore-scheme .filter-wrapper {
+    padding: 8px;
+    margin-bottom: 8px;
+  }
+  .homePageWrapper section.explore-scheme .filter-wrapper .nav-link {
+    font-size: 14px;
+  }
+  .homePageWrapper section.explore-scheme .scheme-card {
+    margin-bottom: 16px;
+  }
+  .homePageWrapper section.explore-scheme .scheme-card img {
+    width: 100%;
+    height: auto;
+  }
+  .homePageWrapper section.explore-scheme .scheme-card .scheme-text {
+    padding: 12px;
+  }
+  .homePageWrapper
+    section.explore-scheme
+    .scheme-card
+    .scheme-text
+    .scheme-title {
+    font-size: 18px;
+  }
+  .homePageWrapper
+    section.explore-scheme
+    .scheme-card
+    .scheme-text
+    .scheme-place {
+    font-size: 12px;
+    line-height: 1;
+    color: #000000d1;
+  }
+  .homePageWrapper section.benefits-section {
+    padding: 40px 20px;
+  }
+  .homePageWrapper section.benefits-section h2 {
+    margin-bottom: 48px;
+  }
+  .homePageWrapper section.benefits-section .benefit-card span.benefit-title {
+    font-size: 20px;
+    margin-bottom: 14px;
+  }
+  .homePageWrapper section.benefits-section .benefit-card span.benefit-desc {
+    font-size: 16px;
+  }
+  .homePageWrapper section.benefits-section button.btn {
+    padding: 16px !important;
+    font-size: 18px;
+    width: 100%;
+  }
+  .homePageWrapper section.key-features {
+    padding: 40px 20px;
+  }
+  .homePageWrapper section.key-features h2 {
+    margin-bottom: 32px;
+  }
+  .homePageWrapper section.key-features .key-feature-box {
+    padding-block: 8px;
+  }
+  .homePageWrapper section.key-features .key-feature-box:not(:last-child) {
+    margin-bottom: 16px;
+  }
+  .homePageWrapper section.key-features .key-feature-box:hover div:before {
+    content: "";
+    height: 100%;
+    width: 4px;
+    border-radius: 0 18px 18px 0;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: -2px;
+    left: 0;
+    bottom: -2px;
+  }
+  .homePageWrapper section.key-features .key-feature-box div {
+    padding-inline: 12px;
+  }
+  .homePageWrapper section.key-features .key-feature-box div p {
+    font-size: 16px;
+  }
+  .homePageWrapper section.key-features .key-feature-box div span {
+    font-size: 14px;
+  }
+  .homePageWrapper section.key-features img {
+    height: auto;
+    width: 100%;
+  }
+  .homePageWrapper section.about-us {
+    padding: 40px 20px;
+  }
+  .homePageWrapper section.about-us h2 {
+    margin-bottom: 24px;
+  }
+  .homePageWrapper section.about-us p {
+    font-size: 20px;
+  }
+  .homePageWrapper section.about-us button.btn-outline-primary {
+    padding: 12px;
+    width: 100%;
+    font-size: 18px;
+  }
+  .homePageWrapper section.faq {
+    padding: 40px 20px;
+  }
+  .homePageWrapper section.faq h2 {
+    margin-bottom: 32px;
+  }
+  .homePageWrapper section.faq img {
+    width: 100%;
+    height: auto;
+  }
+  .homePageWrapper section.faq .accordion:not(:last-child) {
+    margin-bottom: 24px;
+  }
+  .homePageWrapper section.faq .accordion-button {
+    font-size: 16px;
+  }
+}

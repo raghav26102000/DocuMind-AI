@@ -1,0 +1,92 @@
+.scheme-info-wrapper {
+  padding: 120px 152px 80px;
+}
+
+.scheme-menu-wrapper {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 0px 11px 0px #0000002e;
+  padding: 24px;
+  padding-left: 0;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.scheme-menu-wrapper .nav-item .nav-link {
+  width: 100%;
+  text-align: left;
+  border-left: 5px solid transparent;
+  font-size: 20px;
+  color: #000000cc;
+}
+.scheme-menu-wrapper .nav-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+.scheme-menu-wrapper.nav-pills .nav-link.active {
+  background-color: #e4f0ff;
+  border-radius: 0 10px 10px 0;
+  border-left-color: #2279e4 !important;
+}
+h1.scheme-name {
+  font-size: 24px;
+  color: #000000d1;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 45px;
+  color: #000000d1;
+  margin-bottom: 20px;
+}
+.detail-section p {
+  font-size: 20px;
+  color: #000000cc;
+  margin-bottom: 32px;
+}
+#checkEligibilityModal .modal-dialog {
+  min-width: 80vw;
+}
+
+section.application-process-section .scheme-step-box {
+  border: 1px solid #c8c8c8;
+  padding: 16px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+section.application-process-section .scheme-step-box:not(:last-child) {
+  margin-bottom: 24px;
+}
+section.application-process-section .scheme-step-box .step-number {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+section.application-process-section .scheme-step-box .step-desc {
+  font-size: 16px;
+  color: #1e1e1ea1;
+}
+section.application-process-section .scheme-step-box::before {
+  content: "";
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateX(-50%);
+}
+section.application-process-section .scheme-step-box:first-child:before {
+  top: 20px;
+}
+section.application-process-section .scheme-step-box:last-child:before {
+  top: calc(100% - 36px);
+}
+section.application-process-section .vr-line {
+  width: 1px;
+  height: 100%;
+  background-color: #bcbcbc;
+  float: right;
+}

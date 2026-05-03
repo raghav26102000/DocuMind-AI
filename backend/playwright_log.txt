@@ -1,0 +1,887 @@
+2025-09-03 14:08:30,757 - INFO - Starting agent for scheme: Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP) Central Sector Scheme of Scholarship for College and University students
+2025-09-03 14:08:38,503 - INFO - browser started successfully.
+2025-09-03 14:08:38,503 - INFO - Starting agent with prompt: Navigate to according to the 'applicationProcess' mentioned in scheme (if the mode is online) and co...
+Successfully connected to MongoDB!
+✅ MongoDB indexes ensured on startup
+╭───────────────────────────────────────────────────────────────────────────────── New run ──────────────────────────────────────────────────────────────────────────────────╮
+│                                                                                                                                                                            │
+│ Navigate to according to the 'applicationProcess' mentioned in scheme (if the mode is online) and complete the following task:                                             │
+│                                                                                                                                                                            │
+│ Your goal is to complete a government scheme application on the user's behalf with maximum efficiency and accuracy. **Initial Strategy:**                                  │
+│ 1. Start with `get_page_info` to understand the page structure and identify key elements                                                                                   │
+│ 2. Use `analyze_forms` to understand all form requirements before filling anything                                                                                         │
+│ 3. Look for navigation elements like 'Apply Now', 'Application', 'Apply Online' buttons                                                                                    │
+│ 4. Check for authentication requirements or user registration needs                                                                                                        │
+│ **Form Handling Strategy:**                                                                                                                                                │
+│ 1. Use `smart_fill` with proper field names (name, email, phone, dob, gender, state, address)                                                                              │
+│ 2. Use `handle_dropdown` for select elements with field names when possible                                                                                                │
+│ 3. Use `handle_checkbox_radio` for terms acceptance and other boolean fields                                                                                               │
+│ 4. Handle file uploads using `upload_file` with document types from user data                                                                                              │
+│ **Error Handling:**                                                                                                                                                        │
+│ 1. Use `check_page_errors` after each form submission attempt                                                                                                              │
+│ 2. Use `wait_and_verify` for dynamic content loading                                                                                                                       │
+│ 3. Use `handle_captcha` if verification challenges appear                                                                                                                  │
+│ 4. Use `retry_action` for failed operations                                                                                                                                │
+│ **Navigation:**                                                                                                                                                            │
+│ 1. Use `navigate_menu` for complex site navigation                                                                                                                         │
+│ 2. Use `smart_click` for buttons and links with verification                                                                                                               │
+│ 3. Use `scroll_smart` to ensure all content is accessible                                                                                                                  │
+│ **Verification:**                                                                                                                                                          │
+│ 1. Use `take_full_screenshot` at key steps for documentation                                                                                                               │
+│ 2. Verify each action completed successfully before proceeding                                                                                                             │
+│ 3. Check for success messages, confirmation numbers, or next steps                                                                                                         │
+│ **Critical Rules:**                                                                                                                                                        │
+│ - NEVER guess or leave required fields empty - use the comprehensive user data provided                                                                                    │
+│ - If any required information is missing from user data, use user input tool immediately                                                                                   │
+│ - Take screenshots at key milestones for audit trail                                                                                                                       │
+│ - Handle errors gracefully and provide clear status updates                                                                                                                │
+│ - Confirm successful submission with evidence (confirmation message, reference number, etc.)                                                                               │
+│                                                                                                                                                                            │
+│ **Scheme Information:**                                                                                                                                                    │
+│ {                                                                                                                                                                          │
+│   "_id": "687fa5371c1d677cc9cc874e",                                                                                                                                       │
+│   "applicationProcess": [                                                                                                                                                  │
+│     {                                                                                                                                                                      │
+│       "mode": "Online",                                                                                                                                                    │
+│       "process_md": "**One Time Registration (OTR)**\n**Step 1:** Visit the National Scholarships Portal (NSP) One Time Registration page and Click on \u201cApply for     │
+│ OTR\u201d\n**Step 2:** Guidelines for OTR will appear. Scroll to the bottom. Read carefully the undertaking. Accept the Terms. Click \u201cNext\u201d.\n**Step 3:**        │
+│ Register your active mobile number in the OTR registration form. All correspondence/communication will be done on the submitted mobile/e-mail only. \n**Step 4:** Complete │
+│ Aadhaar e-KYC by entering Parent/Legal Guardian/Student Aadhaar number. Submit the OTP received and Click \u201cverify\u201d\n**Step 5:** Enter details on the next page   │
+│ and click \u201cFinish\u201d. You will receive a Reference Number. Download the NSP OTR App and the Aadhaar FaceRD App from Google Play Store and complete face            │
+│ authentication for generating OTR.\n**Step 6:** On successful face authentication, your 14-digit OTR number will be generated and sent via                                 │
+│ SMS.\n&lt;br&gt;\n\n&lt;br&gt;\n\n**Fresh Application**\n**Step 1:** Visit the Applicant Login page of the National Scholarships Portal. Select \u201cOTR Login\u201d and  │
+│ enter your OTR number and password.\n**Step 2:** Type the Captcha and click \u201cLogin\u201d.\n**Step 3:** On the next screen, provide the OTP received on your           │
+│ registered mobile number. You will be directed to the Password Reset screen. Create a new password and confirm.\n**Step 4:** Click \u201cSubmit\u201d. You will be         │
+│ directed to the \u201cApplicant\u2019s Dashboard\u201d.\n**Step 5:** On the left pane, click \u201cApplication Form\u201d. The fields marked as * are compulsory. Fill in  │
+│ the details and upload the documents. The verification of credentials of the students (caste, educational qualifications etc.) will be done through the DIGILOCKER         │
+│ facility of the MeitY, Govt. of India. \n**Step 6:** You can either click on \u201cSave as Draft\u201d to complete the application later. Else, click \u201cFinal          │
+│ Submit\u201d to apply.\n&lt;br&gt;\n\n**Track Payment Status**\nThe student can track their payment status from the template \u201cKnow Your Payment\u201d in the Public   │
+│ Financial Management System (PFMS) Portal either by indicating their Aadhaar Number, Bank Account number or NSP Application ID.\n**NOTE 1:** The National Scholarships     │
+│ Portal will provide the timelines for opening &amp;amp; closing of the portal.\n**NOTE 2:** Online applications will be verified at two levels i.e. by the Institute,      │
+│ where the student is studying and thereafter by the concerned State Higher Education Department or any other Agency/ Official nominated by the State as State Nodal Agency │
+│ (both for fresh and renewal applicants).\n**NOTE 3:** Students will not be permanently debarred for scholarships due to delay in renewal or verification. However,         │
+│ students will have to submit renewal applications within a cut-off date. Renewal for that year will not be allowed if an applicant misses this deadline. However, students │
+│ can apply for renewal in the following year if they meet the eligibility conditions.\ufeff\n&lt;br&gt;\n\n**Grievance Redressal**\nIn case of any grievances/complaints    │
+│ regarding the above scheme, the same may be registered to the following link: http://pgportal.gov.in/grievancenew.aspx other than to the Nodal Officer whose email is      │
+│ available on the NSP portal (Services Tab).\n<br>\n\n"                                                                                                                     │
+│     }                                                                                                                                                                      │
+│   \],                                                                                                                                                                      │
+│   "createdBy": "6880c6e49544029dfcbb0d96",                                                                                                                                 │
+│   "createdOn": "2025-07-23T13:54:10.512000",                                                                                                                               │
+│   "dbtScheme": true,                                                                                                                                                       │
+│   "documentsRequired_md": " The following documents need to be uploaded on the Portal at the time of application:\n**a. FRESH:** 12th Mark Sheet, Family Income            │
+│ Certificate, Category/ caste Certification for reserved category students, Disability Certificate (if applicable)\n**b. RENEWAL:** Previous Year Mark Sheet\n_The copy of  │
+│ above-mentioned documents must be provided to the institutes at the time of verification, if sought for by the Institute Nodal Officer (INO)._\n<br>\n\n",                 │
+│   "documents_required": [                                                                                                                                                  │
+│     " The following documents need to be uploaded on the Portal at the time of application:",                                                                              │
+│     "a. FRESH:",                                                                                                                                                           │
+│     " 12th Mark Sheet, Family Income Certificate, Category/ caste Certification for reserved category students, Disability Certificate (if applicable)",                   │
+│     "b. RENEWAL:",                                                                                                                                                         │
+│     " Previous Year Mark Sheet",                                                                                                                                           │
+│     "The copy of above-mentioned documents must be provided to the institutes at the time of verification, if sought for by the Institute Nodal Officer (INO)."            │
+│   \],                                                                                                                                                                      │
+│   "eligibilityCriteria": {                                                                                                                                                 │
+│     "eligibilityDescription_md": "\n  - The applicant must be above the 80th percentile of successful candidates in the relevant stream from the respective Board of       │
+│ Examination in Class 12th of 10+2 pattern or equivalent.\n  - The applicant must be pursuing regular degree courses.\n  - The applicant must be pursuing courses at        │
+│ colleges/ institutions recognized by the All India Council for Technical Education and the respective Regulatory Bodies concerned.\n  - The gross parental/ family income  │
+│ of the applicant should not exceed \u20b94,50,000/- per annum.\n  - For renewal of scholarship in each year of study, besides getting at least 50% marks in the Annual     │
+│ Examination, maintenance of adequate attendance should be at least 75%.\n  - The students are required to have Aadhaar seeded bank accounts opened in their                │
+│ name.\n\n<br>\n\n"                                                                                                                                                         │
+│   },                                                                                                                                                                       │
+│   "lastFetchedAt": "2025-07-23T13:54:03.970000",                                                                                                                           │
+│   "lastModifiedBy": "6880c6e49544029dfcbb0d96",                                                                                                                            │
+│   "lastModifiedOn": "2025-07-23T13:54:03.970000",                                                                                                                          │
+│   "level": {                                                                                                                                                               │
+│     "value": "central",                                                                                                                                                    │
+│     "label": "Central"                                                                                                                                                     │
+│   },                                                                                                                                                                       │
+│   "nodalDepartmentName": {                                                                                                                                                 │
+│     "value": 1608,                                                                                                                                                         │
+│     "label": "Department Of Higher Education"                                                                                                                              │
+│   },                                                                                                                                                                       │
+│   "schemeCategory": [                                                                                                                                                      │
+│     {                                                                                                                                                                      │
+│       "value": "628ce76cd6d1a3bde4685292",                                                                                                                                 │
+│       "label": "Education & Learning"                                                                                                                                      │
+│     }                                                                                                                                                                      │
+│   \],                                                                                                                                                                      │
+│   "schemeContent": {                                                                                                                                                       │
+│     "references": [                                                                                                                                                        │
+│       {                                                                                                                                                                    │
+│         "title": "Guidelines (2024)",                                                                                                                                      │
+│         "url": "https://scholarships.gov.in/public/schemeGuidelines/CSSS_GUIDLINES_07022024_updated.pdf"                                                                   │
+│       },                                                                                                                                                                   │
+│       {                                                                                                                                                                    │
+│         "title": "FAQs",                                                                                                                                                   │
+│         "url": "https://scholarships.gov.in/public/schemeGuidelines/FAQ_DOHE_CSSS.pdf"                                                                                     │
+│       },                                                                                                                                                                   │
+│       {                                                                                                                                                                    │
+│         "title": "User Manual",                                                                                                                                            │
+│         "url": "https://scholarships.gov.in/public/FAQ/training_of_users_nsp.pdf"                                                                                          │
+│       }                                                                                                                                                                    │
+│     \],                                                                                                                                                                    │
+│     "references_metadata": [],                                                                                                                                             │
+│     "schemeImageUrl":                                                                                                                                                      │
+│ "https://govtschemes.s3.amazonaws.com/scheme-images/687fa5371c1d677cc9cc874e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA4QBAEFJTPYXBO4EC%2F20250811%2Fap-so │
+│ uth-1%2Fs3%2Faws4_request&X-Amz-Date=20250811T121526Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=2f3182b399e56c29954c7e721a3de2b63cd0e511ea3082bbb32f9f │
+│ 162c897f57",                                                                                                                                                               │
+│     "detailedDescription_md": "&amp;quot;Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP) Central Sector Scheme of Scholarship for College and University               │
+│ Students&amp;quot; is a Scholarship Scheme by the Department of Higher Education, Ministry of Education. The primary objective of the scheme is to provide financial       │
+│ assistance to meritorious students from poor families to meet a part of their day-to-day expenses while pursuing higher studies. The scholarships are awarded based on the │
+│ results of the Higher Secondary/ Class 12th Board Examination. A maximum of 82,000 fresh scholarships per annum are provided for pursuing Graduate/ Postgraduate degrees   │
+│ in colleges and universities and for professional courses, such as Medical, Engineering etc.\n&lt;br&gt;\n\n&amp;quot;Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP)  │
+│ Central Sector Scheme of Scholarship for College and University Students&amp;quot; is a Scholarship Scheme by the Department of Higher Education, Ministry of Education.   │
+│ The primary objective of the scheme is to provide financial assistance to meritorious students from poor families to meet a part of their day-to-day expenses while        │
+│ pursuing higher studies. The scholarships are awarded based on the results of the Higher Secondary/ Class 12th Board Examination. A maximum of 82,000 fresh scholarships   │
+│ per annum are provided for pursuing Graduate/ Postgraduate degrees in colleges and universities and for professional courses, such as Medical, Engineering                 │
+│ etc.\n<br>\n\n",                                                                                                                                                           │
+│     "benefits_md": "**Rate of Scholarship**\n\n- \u20b912,000/-per annum at the Graduation level for the first three years of College and University courses.\n-           │
+│ \u20b920,000 per annum at the Post-graduation level.\n- \u20b920,000/-per annum in the 4th and 5th year to the Students pursuing professional courses, in case, where the  │
+│ duration of the course is five (5) years/Integrated course.\n- Students pursuing technical courses such as B.Tech, B.Engg. will get scholarship up to graduation level     │
+│ only i.e. \u20b912,000 p.a. for 1st, 2nd, and 3rd year and \u20b920,000 in the 4th year.\n\n\ufeff\n**Mode of Disbursal**\nThe scholarship will be disbursed directly into │
+│ the Aadhar seeded bank accounts of the beneficiaries through Direct Benefit Transfer (DBT).\n<br>\n\n",                                                                    │
+│     "exclusions_md": "\n  - Students who are pursuing correspondence or distance mode or pursuing Diploma courses are not eligible.\n  - Students who are already availing │
+│ the benefit from any other scholarship schemes including State-run scholarship schemes/ fee waiver &amp;amp; reimbursement schemes are not eligible.\n\n<br>\n\n",         │
+│     "briefDescription": "A scholarship scheme by the Dept. of Higher Education to provide financial assistance to meritorious students from poor families to meet a part   │
+│ of their day-to-day expenses while pursuing higher studies. The scholarships are awarded on the basis of results of Higher Secondary / Class 12th Board Exam",             │
+│     "benefitTypes": {                                                                                                                                                      │
+│       "value": "Cash",                                                                                                                                                     │
+│       "label": "Cash",                                                                                                                                                     │
+│       "id": null                                                                                                                                                           │
+│     }                                                                                                                                                                      │
+│   },                                                                                                                                                                       │
+│   "schemeName": "Pradhan Mantri Uchchatar Shiksha Protsahan (PM-USP) Central Sector Scheme of Scholarship for College and University students",                            │
+│   "schemeOpenDate": null,                                                                                                                                                  │
+│   "schemeShortTitle": "PM-USP-CSSS",                                                                                                                                       │
+│   "schemeSubCategory": [                                                                                                                                                   │
+│     {                                                                                                                                                                      │
+│       "value": "Scholarships and student finance",                                                                                                                         │
+│       "label": "Scholarships and student finance"                                                                                                                          │
+│     }                                                                                                                                                                      │
+│   \],                                                                                                                                                                      │
+│   "slug": "csss-cus",                                                                                                                                                      │
+│   "state": null,                                                                                                                                                           │
+│   "tags": [                                                                                                                                                                │
+│     "Scholarship",                                                                                                                                                         │
+│     "Student",                                                                                                                                                             │
+│     "Financial Assistance",                                                                                                                                                │
+│     "College",                                                                                                                                                             │
+│     "University"                                                                                                                                                           │
+│   \],                                                                                                                                                                      │
+│   "targetBeneficiaries": [                                                                                                                                                 │
+│     {                                                                                                                                                                      │
+│       "value": "individual",                                                                                                                                               │
+│       "label": "Individual"                                                                                                                                                │
+│     }                                                                                                                                                                      │
+│   \],                                                                                                                                                                      │
+│   "status": 1,                                                                                                                                                             │
+│   "eligibilityGender": 4                                                                                                                                                   │
+│ }                                                                                                                                                                          │
+│                                                                                                                                                                            │
+│ Remember: You have comprehensive user data available - use it effectively!                                                                                                 │
+│                                                                                                                                                                            │
+╰─ OpenAIServerModel - gemini-2.5-flash ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:08:44,577 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'brave_search_tool' with arguments: {'query': 'National Scholarships Portal (NSP) One Time Registration page'}                                               │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-09-03 14:08:44,614 - INFO - Initiating Brave Search for query: 'National Scholarships Portal (NSP) One Time Registration page' with 5 results.
+Observations: |
+  {
+    "title": "NSP : National Scholarship Portal",
+    "url": "https://scholarships.gov.in/Students",
+    "snippet": "<strong>NSP</strong> Helpdesk. ... I am still learning.Please forgive me if you find any answer to be inappropriate. ... The <strong>portal</strong> is open 
+for Academic year 2024-25 now. The students can now start registering in the <strong>portal</strong> to get their <strong>One</strong> <strong>Time</strong> 
+<strong>Registration</strong>(OTR) numbers."
+  },
+  {
+    "title": "National Scholarship Portal 2025 \u2013 NSP Login, Status & Last Date",
+    "url": "https://www.buddy4study.com/article/national-scholarship-portal",
+    "snippet": "If the students do not have an Aadhaar number, they can still apply for the scholarships by providing the Aadhaar enrollment id. The students applying for 
+renewal also need to apply through NSP. They need to <strong>visit the home page of NSP and click on the &#x27;login&#x27; button</strong>."
+  },
+  {
+    "title": "National Scholarship Portal: NSP",
+    "url": "https://nsp.gov.in/IVER/",
+    "snippet": "We cannot provide a description for this <strong>page</strong> right now"
+  },
+  {
+    "title": "National Scholarship Portal: NSP",
+    "url": "https://scholarships.gov.in/",
+    "snippet": "<strong>Option to update aadhaar details for such students is now available in the first page of the portal under students</strong>. Students may first 
+register themselves for new OTR and then use this option to update their aadhaar details for AY 2023-24."
+  },
+  {
+    "title": "NSP OTR \u2013 Apps on Google Play",
+    "url": "https://play.google.com/store/apps/details?id=in.gov.scholarships.nspotr&hl=en_IN",
+    "snippet": "One Time Registration - National Scholarship Portal 1. <strong>The NSP OTR App is for students to complete One Time Registration (OTR) on the National 
+Scholarship Portal</strong>. This application uses Aadhaar Face RD Services to authenticate user from UIDAI. 2. External biometric devices are not required to ..."
+  }
+]
+2025-09-03 14:08:47,250 - INFO - Screenshot captured for 'body': (1904, 1064) pixels
+[Step 1: Duration 7.56 seconds| Input tokens: 10,344 | Output tokens: 28]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:08:50,119 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'open_url' with arguments: {'url': 'https://scholarships.gov.in/Students'}                                                                                   │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Successfully navigated to https://scholarships.gov.in/Students. Page title: NSP : National Scholarship Portal
+2025-09-03 14:08:54,817 - INFO - Screenshot captured for 'body': (1905, 1903) pixels
+[Step 2: Duration 6.28 seconds| Input tokens: 21,538 | Output tokens: 52]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:09:02,675 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'find_elements' with arguments: {'tag': 'button', 'text': 'Register'}                                                                                        │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Found 33 elements: |
+  {
+    "selector": "*:has-text('Register')",
+    "index": 0,
+    "text": "\n  \n  \n  \n  \n  \n  NSP : National Scholarship Portal\n \n\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n\n  ",
+    "tag": "html",
+    "bbox": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 1,
+    "text": "\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n\n        NSP : National Scholarship Portal\n        \n\n      ",
+    "tag": "body",
+    "bbox": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1902.984375
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 2,
+    "text": "\n\n    \n\n      \n        \n          \n \n   \n\n   \n    Students\n  \n  \n                   \n          \n    ",
+    "tag": "main",
+    "bbox": {
+      "x": 0,
+      "y": 37,
+      "width": 1920,
+      "height": 1731.984375
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 3,
+    "text": "\n\n\n        \n          \n            \n              \n                \n                 Announcements\n ",
+    "tag": "section",
+    "bbox": {
+      "x": 0,
+      "y": 245,
+      "width": 1920,
+      "height": 1371
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 4,
+    "text": "\n          \n            \n              \n                \n                 Announcements\n            ",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": 295,
+      "width": 1820,
+      "height": 1321
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 5,
+    "text": "\n            \n              \n                \n                 Announcements\n                \n      ",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": 295,
+      "width": 1820,
+      "height": 1321
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 6,
+    "text": "\n              \n                \n                 Announcements\n                \n                   ",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": 295,
+      "width": 606.65625,
+      "height": 502
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 7,
+    "text": "\n                \n                 Announcements\n                \n                    Portal is now ",
+    "tag": "div",
+    "bbox": {
+      "x": 62,
+      "y": 310,
+      "width": 582.65625,
+      "height": 472
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 8,
+    "text": "\n                  The students can now start registering in the portal to get their One Time Regist",
+    "tag": "p",
+    "bbox": {
+      "x": 93,
+      "y": 654,
+      "width": 520.65625,
+      "height": 54
+    }
+  },
+  {
+    "selector": "*:has-text('Register')",
+    "index": 9,
+    "text": "\n    \n\n      \n\n        \n          \n            \n          \n          \n            \n              \n  ",
+    "tag": "div",
+    "bbox": null
+  }
+]
+2025-09-03 14:09:11,717 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 3: Duration 15.62 seconds| Input tokens: 33,062 | Output tokens: 138]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 4 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:09:21,269 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'get_page_info' with arguments: {}                                                                                                                           │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Page Info: {
+  "title": "NSP : National Scholarship Portal",
+  "url": "https://scholarships.gov.in/Students",
+  "has_forms": false,
+  "form_count": 0,
+  "has_file_inputs": false,
+  "has_captcha": false,
+  "page_height": 1903,
+  "viewport_height": 1080
+}
+2025-09-03 14:09:23,068 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 4: Duration 9.95 seconds| Input tokens: 46,082 | Output tokens: 150]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 5 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:09:30,935 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'find_elements' with arguments: {'text': 'Apply for OTR'}                                                                                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: No visible elements found matching criteria.
+2025-09-03 14:09:32,421 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 5: Duration 8.02 seconds| Input tokens: 59,499 | Output tokens: 168]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 6 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:09:40,398 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'find_elements' with arguments: {'text': 'Login', 'tag': 'a'}                                                                                                │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Found 113 elements: |
+  {
+    "selector": "text='Login'",
+    "index": 0,
+    "text": "Login",
+    "tag": "a",
+    "bbox": {
+      "x": -306,
+      "y": 681,
+      "width": 270,
+      "height": 36
+    }
+  },
+  {
+    "selector": "text='Login'",
+    "index": 1,
+    "text": "Login",
+    "tag": "a",
+    "bbox": {
+      "x": -306,
+      "y": 935,
+      "width": 270,
+      "height": 36
+    }
+  },
+  {
+    "selector": "text='Login'",
+    "index": 2,
+    "text": "Login",
+    "tag": "a",
+    "bbox": {
+      "x": 699.65625,
+      "y": 700,
+      "width": 45.0625,
+      "height": 23
+    }
+  },
+  {
+    "selector": "text='Login'",
+    "index": 3,
+    "text": "Login",
+    "tag": "a",
+    "bbox": {
+      "x": 1306.3125,
+      "y": 630,
+      "width": 45.0625,
+      "height": 23
+    }
+  },
+  {
+    "selector": "*:has-text('Login')",
+    "index": 0,
+    "text": "\n  \n  \n  \n  \n  \n  NSP : National Scholarship Portal\n \n\n\n\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n\n  ",
+    "tag": "html",
+    "bbox": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "selector": "*:has-text('Login')",
+    "index": 1,
+    "text": "\n\n\n\n\n\n\n\n\n    \n        \n        \n        \n\n        NSP : National Scholarship Portal\n        \n\n      ",
+    "tag": "body",
+    "bbox": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 1902.984375
+    }
+  },
+  {
+    "selector": "*:has-text('Login')",
+    "index": 2,
+    "text": "\n\n            \n\n                \n                    \n                        \n                     ",
+    "tag": "header",
+    "bbox": {
+      "x": 0,
+      "y": 0,
+      "width": 1920,
+      "height": 37
+    }
+  },
+  {
+    "selector": "*:has-text('Login')",
+    "index": 3,
+    "text": "\n                \n\n                    \n                        \n                            \n      ",
+    "tag": "div",
+    "bbox": {
+      "x": 0,
+      "y": 37,
+      "width": 1920,
+      "height": 92.3125
+    }
+  },
+  {
+    "selector": "*:has-text('Login')",
+    "index": 4,
+    "text": "\n\n                    \n                        \n                            \n                       ",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": 37,
+      "width": 1820,
+      "height": 92.3125
+    }
+  },
+  {
+    "selector": "*:has-text('Login')",
+    "index": 5,
+    "text": "\n                        \n                            \n                                \n            ",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": 37,
+      "width": 1820,
+      "height": 92.3125
+    }
+  }
+]
+2025-09-03 14:09:57,917 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 6: Duration 24.18 seconds| Input tokens: 73,225 | Output tokens: 188]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 7 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:10:09,630 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'smart_click' with arguments: {'description': 'Clicking login under OTR section', 'target': '#root > div.main-content > section > div >                      │
+│ div.col-lg-10.col-md-10.col-sm-12.col-12.mx-auto > div > div:nth-child(2) > div > div.card-body > p:nth-child(3) > a'}                                                     │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Failed to click element: #root > div.main-content > section > div > div.col-lg-10.col-md-10.col-sm-12.col-12.mx-auto > div > div:nth-child(2) > div > 
+div.card-body > p:nth-child(3) > a. Element not found or not clickable.
+2025-09-03 14:10:11,181 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 7: Duration 11.87 seconds| Input tokens: 88,349 | Output tokens: 286]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 8 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:10:22,070 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'find_elements' with arguments: {'text': 'Apply for OTR'}                                                                                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: No visible elements found matching criteria.
+2025-09-03 14:10:23,448 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 8: Duration 11.01 seconds| Input tokens: 103,943 | Output tokens: 304]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 9 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:10:36,205 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'brave_search_tool' with arguments: {'query': 'NSP One Time Registration page'}                                                                              │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+2025-09-03 14:10:36,215 - INFO - Initiating Brave Search for query: 'NSP One Time Registration page' with 5 results.
+Observations: |
+  {
+    "title": "NSP OTR Registration 2025",
+    "url": "https://scholarships.gov.in/otrapplication/",
+    "snippet": "Default checkbox \u00b7 <strong>NSP</strong> registered Institutes"
+  },
+  {
+    "title": "NSP : National Scholarship Portal",
+    "url": "https://scholarships.gov.in/Students",
+    "snippet": "<strong>NSP</strong> Helpdesk. ... I am still learning.Please forgive me if you find any answer to be inappropriate. ... The portal is open for Academic year 
+2024-25 now. The students can now start registering in the portal to get their <strong>One</strong> <strong>Time</strong> <strong>Registration</strong>(OTR) numbers."
+  },
+  {
+    "title": "Nsp",
+    "url": "https://nsp.gov.in/IVER/",
+    "snippet": "We cannot provide a description for this <strong>page</strong> right now"
+  },
+  {
+    "title": "NSP OTR \u2013 Apps on Google Play",
+    "url": "https://play.google.com/store/apps/details?id=in.gov.scholarships.nspotr&hl=en_IN",
+    "snippet": "One Time Registration - National Scholarship Portal 1. <strong>The NSP OTR App is for students to complete One Time Registration (OTR) on the National 
+Scholarship Portal</strong>. This application uses Aadhaar Face RD Services to authenticate user from UIDAI. 2. External biometric devices are not required to ..."
+  },
+  {
+    "title": "NSP OTR (One Time Registration) process",
+    "url": "https://scstwelfare.delhi.gov.in/sites/default/files/2024-08/nsp_otr_generation_process_0.pdf",
+    "snippet": "The Department is fully committed to the highest standard of excellence and transparency in providing the benefits to the people belonging to 
+SC&#x27;s/ST\u2019s/OBC\u2019s/Minorities. Number of schemes are being implemented by Govt. of NCT of Delhi for socio-economic development of residents of Delhi ..."
+  }
+]
+2025-09-03 14:10:38,959 - INFO - Screenshot captured for 'body': (1920, 1903) pixels
+[Step 9: Duration 14.22 seconds| Input tokens: 119,846 | Output tokens: 327]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 10 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:10:51,767 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'open_url' with arguments: {'url': 'https://scholarships.gov.in/otrapplication/'}                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Error navigating to https://scholarships.gov.in/otrapplication/: Page.goto: net::ERR_NETWORK_CHANGED at https://scholarships.gov.in/otrapplication/
+Call log:
+  - navigating to "https://scholarships.gov.in/otrapplication/", waiting until "networkidle"
+2025-09-03 14:10:52,619 - INFO - Screenshot captured for 'body': (1904, 323) pixels
+[Step 10: Duration 12.93 seconds| Input tokens: 136,572 | Output tokens: 354]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 11 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:11:04,895 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'open_url' with arguments: {'url': 'https://scholarships.gov.in/otrapplication/'}                                                                            │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Successfully navigated to https://scholarships.gov.in/otrapplication/. Page title: NSP : National Scholarship Portal
+2025-09-03 14:11:13,444 - INFO - Screenshot captured for 'body': (1905, 1673) pixels
+[Step 11: Duration 19.45 seconds| Input tokens: 153,679 | Output tokens: 381]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 12 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:11:27,220 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'scroll_smart' with arguments: {'direction': 'to_bottom'}                                                                                                    │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Scrolled to bottom of page.
+2025-09-03 14:11:29,784 - INFO - Screenshot captured for 'body': (1905, 1673) pixels
+[Step 12: Duration 13.82 seconds| Input tokens: 171,121 | Output tokens: 398]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 13 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:11:45,302 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'handle_checkbox_radio' with arguments: {'selector': "input[type='checkbox']", 'field_name': 'read_guidelines', 'description': 'Accepting guidelines for One │
+│ Time Registration.', 'state': True}                                                                                                                                        │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Error handling checkbox/radio 'read_guidelines': Locator.set_checked: Error: strict mode violation: locator("input|type='checkbox']") resolved to 6 elements:
+    1) <input id="myCheck1" type="checkbox" onclick="checkBoxAlert()" _ngcontent-ng-c2858696777="" class="form-check-input ng-untouched ng-pristine ng-valid"/> aka 
+get_by_role("checkbox").first
+    2) <input id="myCheck2" type="checkbox" onclick="checkBoxAlert()" _ngcontent-ng-c2858696777="" class="form-check-input ng-untouched ng-pristine ng-valid"/> aka 
+get_by_role("checkbox").nth(1)
+    3) <input type="checkbox" name="eidCheckbox" value="eidCheckbox" id="flexCheckDefault" _ngcontent-ng-c2858696777="" formcontrolname="eidCheckbox" class="form-check-input 
+ng-untouched ng-pristine ng-valid"/> aka get_by_label("Default checkbox")
+    4) <input type="checkbox" name="eidCheckbox2" value="eidCheckbox2" id="flexCheckDefault" _ngcontent-ng-c2858696777="" formcontrolname="eidCheckbox2" 
+class="form-check-input ng-untouched ng-pristine ng-valid"/> aka locator("input|name=\"eidCheckbox2\"]")
+    5) <input value="" type="checkbox" id="flexCheckDefault" class="form-check-input"/> aka locator("#serchBackdrop #flexCheckDefault")
+    6) <input value="" type="checkbox" id="flexCheckChecked" class="form-check-input"/> aka get_by_label("NSP registered Institutes")
+
+Call log:
+  - waiting for locator("input|type='checkbox']")
+2025-09-03 14:11:46,490 - ERROR - Screenshot failed for 'body': 'str' object has no attribute 'trim'
+[Step 13: Duration 16.70 seconds| Input tokens: 188,871 | Output tokens: 447]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 14 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:12:03,283 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'find_elements' with arguments: {'text': 'I have read and understood the guidelines for One time Registration.', 'attributes': {}, 'tag': 'input'}           │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Found 95 elements: |
+  {
+    "selector": "text='I have read and understood the guidelines for One time Registration.'",
+    "index": 0,
+    "text": " I have read and understood the guidelines for One time Registration. ",
+    "tag": "label",
+    "bbox": {
+      "x": 145,
+      "y": 519.59375,
+      "width": 1673,
+      "height": 24
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 0,
+    "text": "\n  \n  \n  \n  \n  NSP : National Scholarship Portal\n  \n  \n  \n  \n  \n  \n  \n  \n  @charset \"UTF-8\";:root{--",
+    "tag": "html",
+    "bbox": {
+      "x": 0,
+      "y": -593,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 1,
+    "text": " \n   Government of IndiaMinistry of Electronics & Information Technology English EnglishHindiStudent",
+    "tag": "body",
+    "bbox": {
+      "x": 0,
+      "y": -593,
+      "width": 1920,
+      "height": 1672.59375
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 2,
+    "text": "Government of IndiaMinistry of Electronics & Information Technology English EnglishHindiStudents Stu",
+    "tag": "app-root",
+    "bbox": {
+      "x": 0,
+      "y": -593,
+      "width": 1920,
+      "height": 1672.59375
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 3,
+    "text": "LoginRegisterChange Mobile no.CSC LoginCSC Id:-  RegisterAlready have an account?  Login1. Guideline",
+    "tag": "app-registration",
+    "bbox": {
+      "x": 0,
+      "y": -556,
+      "width": 1920,
+      "height": 0
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 4,
+    "text": "LoginRegisterChange Mobile no.CSC LoginCSC Id:-  RegisterAlready have an account?  Login1. Guideline",
+    "tag": "div",
+    "bbox": {
+      "x": 0,
+      "y": -556,
+      "width": 1920,
+      "height": 0
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 5,
+    "text": "LoginRegisterChange Mobile no.CSC LoginCSC Id:-  RegisterAlready have an account?  Login1. Guideline",
+    "tag": "main",
+    "bbox": {
+      "x": 0,
+      "y": -556,
+      "width": 1920,
+      "height": 0
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 6,
+    "text": " RegisterAlready have an account?  Login1. Guidelines 2. Register Mobile No. 3. eKYC 4. Finish 1. On",
+    "tag": "section",
+    "bbox": {
+      "x": 0,
+      "y": -310,
+      "width": 1920,
+      "height": 1051.59375
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 7,
+    "text": " RegisterAlready have an account?  Login1. Guidelines 2. Register Mobile No. 3. eKYC 4. Finish 1. On",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": -260,
+      "width": 1820,
+      "height": 1001.59375
+    }
+  },
+  {
+    "selector": "*:has-text('I have read and understood the guidelines for One time Registration.')",
+    "index": 8,
+    "text": " RegisterAlready have an account?  Login1. Guidelines 2. Register Mobile No. 3. eKYC 4. Finish 1. On",
+    "tag": "div",
+    "bbox": {
+      "x": 50,
+      "y": -260,
+      "width": 1820,
+      "height": 1001.59375
+    }
+  }
+]
+2025-09-03 14:12:18,559 - INFO - Screenshot captured for 'body': (1920, 1673) pixels
+[Step 14: Duration 29.91 seconds| Input tokens: 207,393 | Output tokens: 480]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 15 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:12:36,878 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'find_elements' with arguments: {'attributes': {}, 'tag': 'input'}                                                                                           │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Found 76 elements: |
+  {
+    "selector": "input",
+    "index": 0,
+    "text": "",
+    "tag": "input",
+    "bbox": {
+      "x": 111,
+      "y": 519.59375,
+      "width": 24,
+      "height": 24
+    }
+  },
+  {
+    "selector": "input",
+    "index": 1,
+    "text": "",
+    "tag": "input",
+    "bbox": {
+      "x": 111,
+      "y": 551.59375,
+      "width": 24,
+      "height": 24
+    }
+  },
+  {
+    "selector": "input",
+    "index": 2,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 3,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 4,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 5,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 6,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 7,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 8,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  },
+  {
+    "selector": "input",
+    "index": 9,
+    "text": "",
+    "tag": "input",
+    "bbox": null
+  }
+]
+2025-09-03 14:12:47,298 - INFO - Screenshot captured for 'body': (1920, 1673) pixels
+[Step 15: Duration 27.38 seconds| Input tokens: 227,551 | Output tokens: 498]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 16 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:13:06,987 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'handle_checkbox_radio' with arguments: {'description': 'Accepting guidelines for One Time Registration.', 'field_name': 'read_guidelines', 'selector':      │
+│ 'input[index="0"]', 'state': True}                                                                                                                                         │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Element 'input|index="0"]' is not visible.
+2025-09-03 14:13:07,019 - ERROR - Screenshot failed for 'body': 'str' object has no attribute 'trim'
+[Step 16: Duration 19.72 seconds| Input tokens: 248,533 | Output tokens: 545]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 17 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:13:29,949 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'handle_checkbox_radio' with arguments: {'description': 'Accepting guidelines for One Time Registration.', 'selector': 'label:has-text("I have read and      │
+│ understood the guidelines for One time Registration.")', 'field_name': 'read_guidelines', 'state': True}                                                                   │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Error handling checkbox/radio 'read_guidelines': Locator.set_checked: Error: Not a checkbox or radio button
+Call log:
+  - waiting for locator("label:has-text(\"I have read and understood the guidelines for One time Registration.\")")
+    - locator resolved to <label class="form-check-label" _ngcontent-ng-c2858696777=""> I have read and understood the guidelines for On…</label>
+2025-09-03 14:13:30,050 - ERROR - Screenshot failed for 'body': 'str' object has no attribute 'trim'
+[Step 17: Duration 22.25 seconds| Input tokens: 269,862 | Output tokens: 606]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 18 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:13:50,913 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'handle_checkbox_radio' with arguments: {'state': True, 'field_name': 'read_guidelines', 'description': 'Accepting guidelines for One Time Registration.',   │
+│ 'selector': 'input[type="checkbox"][id="myCheck1"]'}                                                                                                                       │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Successfully checked element 'read_guidelines'.
+2025-09-03 14:13:51,077 - ERROR - Screenshot failed for 'body': 'str' object has no attribute 'trim'
+[Step 18: Duration 20.27 seconds| Input tokens: 291,640 | Output tokens: 660]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 19 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:14:11,131 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'handle_checkbox_radio' with arguments: {'field_name': 'consent_aadhaar_otr', 'description': 'Accepting consent to use Aadhaar/ OTR for de-duplication.',    │
+│ 'state': True, 'selector': 'input[type="checkbox"][id="myCheck2"]'}                                                                                                        │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Successfully checked element 'consent_aadhaar_otr'.
+2025-09-03 14:14:11,292 - ERROR - Screenshot failed for 'body': 'str' object has no attribute 'trim'
+[Step 19: Duration 19.30 seconds| Input tokens: 313,767 | Output tokens: 724]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ Step 20 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+2025-09-03 14:14:31,837 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Calling tool: 'smart_click' with arguments: {'target': 'Next', 'description': 'Clicking Next to proceed to mobile number registration.'}                                   │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+Observations: Successfully clicked 'Next'. Page navigated to: https://scholarships.gov.in/otrapplication/#/
+2025-09-03 14:14:34,779 - INFO - Screenshot captured for 'body': (1905, 1474) pixels
+[Step 20: Duration 21.48 seconds| Input tokens: 336,255 | Output tokens: 752]
+2025-09-03 14:14:55,916 - INFO - HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/openai/chat/completions "HTTP/1.1 200 OK"
+Reached max steps.
+2025-09-03 14:14:57,198 - INFO - Screenshot captured for 'body': (1920, 1474) pixels
+[Step 21: Duration 21.14 seconds| Input tokens: 355,740 | Output tokens: 786]
+2025-09-03 14:14:57,200 - INFO - Agent completed successfully. Final answer: Calling tools:
+[{'id': '', 'type': 'function', 'function': {'name': 'get_page_info', 'arguments': {}}}]...
+2025-09-03 14:14:57,611 - INFO - Browser closed.
+2025-09-03 14:14:57,611 - INFO - Agent completed with result: Calling tools:
+[{'id': '', 'type': 'function', 'function': {'name': 'get_page_info', 'arguments': {}}}]

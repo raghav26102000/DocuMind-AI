@@ -1,0 +1,39 @@
+.marqueeWrapper {
+  overflow: hidden;
+  width: 100%;
+  /* optional: give a fixed height or let children determine */
+  /* height: 120px; */
+  position: relative;
+}
+
+.marquee {
+  display: flex;
+  align-items: start;
+  /* space between items controlled by inline style gap */
+  /* create the smooth infinite leftward motion */
+  animation-name: marqueeScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.item {
+  flex: 0 0 auto;
+  /* optional styling for item */
+}
+
+/* translateX from 0 to -50% (we duplicated items so -50% equals a full set)
+   If items vary widely in width this still works because full width duplicates */
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(70%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+.marqueeWrapper:hover .marquee {
+  animation-play-state: paused;
+}

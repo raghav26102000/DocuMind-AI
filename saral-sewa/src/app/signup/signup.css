@@ -1,0 +1,131 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 80px 108px 40px;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../../../public/imgs/login-bg.png);
+  background-position: center;
+  background-size: cover;
+}
+.hero-section .hero-text {
+  padding: 16px;
+  background-color: #fff;
+  animation: heroAnimation 0.8s ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 40%;
+}
+.hero-section .hero-text h1 {
+  font-size: 65px;
+  font-weight: 400;
+  line-height: 100%;
+  margin-block: 0;
+  color: #000000d1;
+}
+.hero-section h2 {
+  font-weight: 600;
+  color: 11ee1e;
+}
+.hero-section .hero-text p {
+  font-size: 24px;
+  line-height: 100%;
+  margin-block: 34px;
+  color: #000000d1;
+}
+.hero-section .hero-text .scheme-input-container {
+  position: relative;
+  width: 100%;
+}
+.hero-section .hero-text .scheme-input-container input {
+  width: 100%;
+  padding: 20px 48px 20px 24px;
+  border: 1px solid var(--primary-color);
+  font-size: 20px;
+  color: #000;
+  border-radius: 10px;
+}
+.hero-section .hero-text .scheme-input-container svg {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-section .site-benefits {
+  width: 50%;
+}
+.hero-section .site-benefits img.hero-img {
+  margin-top: auto;
+  width: 100%;
+  height: auto;
+}
+.hero-section .site-benefits h2 {
+  font-size: 32px;
+  margin-block: 12px 24px;
+  color: #fff;
+}
+.hero-section .site-benefits h5 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #fff;
+}
+.hero-section .site-benefits ul {
+  padding: 0;
+}
+.hero-section .site-benefits ul li {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 400;
+  margin-block: 20px;
+}
+.hero-section button.btn-primary {
+  padding: 12px 48px;
+  width: 100%;
+}
+hr {
+  background-color: #1e1e1e33;
+  height: 1px;
+  width: 100%;
+  margin-block: 0;
+}
+span.or-span {
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #fff;
+  padding: 8px;
+}
+
+.number-link-message {
+  background-color: #eff6ff;
+  padding: 12px;
+  color: var(--primary-color);
+  margin-top: 16px;
+  width: 100%;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    justify-content: center;
+    gap: 0;
+    padding: 80px 20px;
+  }
+
+  .hero-section .hero-text {
+    width: 100%;
+  }
+
+  .hero-section .site-benefits {
+    display: none;
+  }
+}

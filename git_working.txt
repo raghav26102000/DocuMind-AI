@@ -1,0 +1,61 @@
+========================================
+WORKING WITH GIT COMMANDS
+========================================
+
+
+I. Understanding Branches
+In Git, a "branch" is essentially an independent line of development. When you create a branch, you're creating a 
+new pointer to a commit, allowing you to make changes without affecting the master (or main) branch.
+
+   git branch (List current branch)
+   git branch -a (List all the branches)
+
+------------------------------------------------------------------------------------------------------------------
+
+II. Changing Between Branches
+
+    git switch -c <new-branch-name> (Create and switch to a new branch for your work)
+    git switch <branch-name> (Switch to an existing branch)
+
+Older Git / More General Use (still works):
+
+git checkout <branch-name>
+
+Note: git checkout is more powerful and can do more than just switch branches (like restoring files), which is why
+ git switch was introduced for just branch switching.
+
+
+------------------------------------------------------------------------------------------------------------------
+
+III. Merging a Branch
+
+First, switch to the branch you want to merge into:
+git switch <target-branch>
+# Example: git switch master
+
+Then, execute the merge command, specifying the branch whose changes you want to bring in:
+git merge <source-branch>
+# Example: git merge feature/my-new-feature
+
+Taking a Pull from a Branch:
+To fetch the latest changes from a remote branch and integrate them into your current local branch:
+git pull origin <remote-branch-name>
+# Example: git pull origin master
+# Example: git pull origin test
+
+------------------------------------------------------------------------------------------------------------------
+
+IV. Pushing to a Branch : 
+
+git push origin <local-branch-name>
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Basics : 
+
+git status (Check your current situation)
+git add . (Stage your changes)
+git commit -m "Your message" (Save your changes)
+git push (Upload your changes)

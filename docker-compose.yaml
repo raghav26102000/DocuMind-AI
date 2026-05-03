@@ -1,0 +1,71 @@
+# version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+    # networks:
+    #   - scheme_network_o
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    depends_on:
+      - scheme-pipeline
+      - scheme-master
+      - scheme-frontend
+
+  scheme-pipeline:
+    image: scheme/pipeline
+    build:
+      context: ./pipeline
+      dockerfile: Dockerfile
+    # env_file:
+    #   - .env
+    # networks:
+    #   - scheme_network_o
+
+    
+  scheme-master:
+    image: scheme/master
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    # env_file:
+    #   - backend/.env
+    # networks:
+    #   - scheme_network_o
+    
+  scheme-frontend:
+    image: scheme/frontend
+    build:
+      context: ./saral-sewa
+      dockerfile: Dockerfile
+      secrets:
+        - scheme_base_url
+      # args:
+      #   - NEXT_PUBLIC_API_BASE_URL=/api/master
+    # env_file:
+    #   - saral-sewa/.env.local
+    # networks:
+    #   - scheme_network_o
+    # environment:
+    #   - NEXT_PUBLIC_API_BASE_URL=/api/master
+    secrets:
+      - scheme_base_url
+    
+# networks:
+#   scheme_network_o:
+#     driver: overlay
+#     attachable: true
+#     external: true
+    
+
+secrets:
+  scheme_base_url:
+    # external: true
+    file: ./scheme_base_url.txt
+
+

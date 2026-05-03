@@ -1,0 +1,334 @@
+Successfully connected to MongoDB!
+✅ MongoDB indexes ensured on startup
+✅ Loaded 105 questions.
+📊 Answers prepared: 105 total.
+parsing input dict to init
+parsing done
+init done, doing save latex ..
+env is:  <jinja2.environment.Environment object at 0x7f59a934fb10>
+template from env.get_template() on the original template:  <Template 'dpr.tex.jinja'>
+rendered:  
+
+\documentclass[12pt, a4paper]{article}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{textcomp} % For \textcurrency
+\usepackage{ragged2e} % For \justifying or other alignment
+\usepackage{array}    % For improved table column formatting
+\usepackage{tabularx} % For tables with automatic width adjustment, if needed
+
+% Set basic font sizes and line spacing
+\linespread{1.2}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0em}
+
+% Custom list environments
+\newlist{dprlistbullet}{itemize}{1}
+\setlist[dprlistbullet]{label=\textbullet, wide=0pt, leftmargin=*, topsep=0.5ex, partopsep=0.5ex, itemsep=0.5ex, parsep=0.5ex}
+
+% Custom command for multiline items that align correctly in lists
+\newcommand{\multilineitem}[1]{\parbox[t]{\dimexpr\linewidth-\labelwidth-\labelsep}{#1}}
+
+% Custom command for rupees, if needed for direct use. But we're using raw \textcurrency
+\newcommand{\rupee}[1]{\textcurrency{}\textbf{#1}}
+
+
+
+
+
+
+\begin{document}
+
+\begin{center}
+    \fontsize{24pt}{28pt}\selectfont \textbf{Detailed Project Report (DPR)}
+\end{center}
+
+\vspace{1cm}
+
+\section*{1. Executive Summary}
+\begin{dprlistbullet}
+    \item \textbf{1.1. Project Title:} evil
+    \item \textbf{1.2. Name of Enterprise:} doofitshmertz evil.inc.
+    \item \textbf{1.3. Promoter(s) Name:} platypus perry
+    \item \textbf{1.4. Project Location:} disneyland
+    \item \textbf{1.5. Project Overview:}
+    \begin{dprlistbullet}
+        \item Nature of Project: world domination
+        \item Business Activity: ragebaiting
+        \item Brief Description: \multilineitem{ nuclear war }
+    \end{dprlistbullet}
+    \item \textbf{1.6. Key Project Highlights:}
+    \begin{dprlistbullet}
+        \item Total Project Cost: \rupee{ Not Provided }
+        \item Promoter's Contribution: \rupee{ Not Provided } (\textbf{ Not Provided }\%)
+        \item Bank Loan Required: \rupee{ Not Provided }
+        \item Government Subsidy Applied For: \rupee{ Not Provided }
+        \item Projected Annual Revenue (Year 5): \rupee{ Not Provided }
+        \item Projected Employment Generation (Direct \& Indirect): Not Provided
+    \end{dprlistbullet}
+\end{dprlistbullet}
+
+\section*{2. Promoter's Profile}
+\begin{dprlistbullet}
+    \item \textbf{2.1. Personal Details:}
+    \begin{dprlistbullet}
+        \item Name: Not Provided
+        \item Date of Birth: Not Provided
+        \item Father's/Spouse's Name: Not Provided
+        \item Permanent Address: \multilineitem{ Not Provided }
+        \item Contact Number: Not Provided
+        \item Email ID: Not Provided
+        \item PAN Number: Not Provided
+        \item Aadhaar Number: Not Provided
+    \end{dprlistbullet}
+    \item \textbf{2.2. Educational Qualifications:} \multilineitem{ Not Provided }
+    \item \textbf{2.3. Work Experience:} \multilineitem{ Not Provided }
+    \item \textbf{2.4. Legal Status of the Enterprise:}
+    \begin{dprlistbullet}
+        \item Constitution: Not Provided
+        \item Date of Incorporation/Registration: Not Provided
+        \item Registration Number (CIN/LLPIN, etc.): Not Provided
+    \end{dprlistbullet}
+\end{dprlistbullet}
+
+\section*{3. Project Description}
+\begin{dprlistbullet}
+    \item \textbf{3.1. Rationale \& Objectives:}
+    \begin{dprlistbullet}
+        \item Problem/Need Addressed: \multilineitem{ Not Provided }
+        \item Project Objectives: \multilineitem{ Not Provided }
+    \end{dprlistbullet}
+    \item \textbf{3.2. Location Details:}
+    \begin{dprlistbullet}
+        \item Proposed Location: \multilineitem{ Not Provided }
+        \item Land/Premises Status: Not Provided
+        \item Locational Advantages: \multilineitem{ Not Provided }
+    \end{dprlistbullet}
+    \item \textbf{3.3. Products/Services:} \multilineitem{ Not Provided }
+    \item \textbf{3.4. Installed Capacity/Service Capacity:} \multilineitem{ Not Provided }
+    \item \textbf{3.5. Technology \& Manufacturing Process:}
+    \begin{dprlistbullet}
+        \item Technology Selection: \multilineitem{ Not Provided }
+        \item Process Flow: \multilineitem{ Not Provided }
+    \end{dprlistbullet}
+    \item \textbf{3.6. Utilities \& Infrastructure:}
+    \begin{dprlistbullet}
+        \item Power Requirement: Not Provided \& Source: Not Provided
+        \item Water Requirement: Not Provided \& Source: Not Provided
+        \item Other Requirements: \multilineitem{ Not Provided }
+    \end{dprlistbullet}
+\end{dprlistbullet}
+
+\section*{4. Market Analysis}
+\begin{dprlistbullet}
+    \item \textbf{4.1. Industry Overview:} \multilineitem{ Not Provided }
+    \item \textbf{4.2. Target Audience:} \multilineitem{ Not Provided }
+    \item \textbf{4.3. Demand-Supply Gap:} \multilineitem{ Not Provided }
+    \item \textbf{4.4. Competitor Analysis:} \multilineitem{ Not Provided }
+    \item \textbf{4.5. Marketing \& Sales Strategy:}
+    \begin{dprlistbullet}
+        \item Pricing Strategy: Not Provided
+        \item Distribution Channels: Not Provided
+        \item Promotional Activities: Not Provided
+    \end{dprlistbullet}
+\end{dprlistbullet}
+
+\section*{5. Financial Projections}
+\begin{dprlistbullet}
+    \item \textbf{5.1. Project Cost:}
+    \begin{tabular}{|>{\centering\arraybackslash}p{0.8cm}|p{6cm}|>{\centering\arraybackslash}p{4cm}|}
+        \hline
+        \textbf{S.No.} & \textbf{Particulars} & \textbf{Amount (₹)} \\
+            \hline
+    1. & Land \& Site Development & \rupee{ Not Provided } \\
+
+            \hline
+    2. & Building \& Civil Works & \rupee{ Not Provided } \\
+
+            \hline
+    3. & Plant \& Machinery & \rupee{ Not Provided } \\
+
+            \hline
+    4. & Furniture, Fixtures \& Office Equipment & \rupee{ Not Provided } \\
+
+            \hline
+    5. & Preliminary \& Pre-operative Expenses & \rupee{ Not Provided } \\
+
+            \hline
+    6. & Contingencies & \rupee{ Not Provided } \\
+
+            \hline
+    7. & Working Capital Margin & \rupee{ Not Provided } \\
+
+        \hline
+        \multicolumn{2}{|r|}{\textbf{Total Project Cost}} & \rupee{ Not Provided } \\
+        \hline
+    \end{tabular}
+    \vspace{0.5cm}
+
+    \item \textbf{5.2. Means of Finance:}
+    \begin{tabular}{|>{\centering\arraybackslash}p{0.8cm}|p{6cm}|>{\centering\arraybackslash}p{4cm}|>{\centering\arraybackslash}p{2cm}|}
+        \hline
+        \textbf{S.No.} & \textbf{Particulars} & \textbf{Amount (₹)} & \textbf{\% of Total} \\
+            \hline
+    1. & Promoter's Contribution (Equity) & \rupee{ Not Provided } & \textbf{ Not Provided }\% \\
+
+            \hline
+    2. & Bank Term Loan & \rupee{ Not Provided } & \textbf{ Not Provided }\% \\
+
+            \hline
+    3. & Government Subsidy (Expected) & \rupee{ Not Provided } & \textbf{ Not Provided }\% \\
+
+            \hline
+    4. & Unsecured Loans & \rupee{ Not Provided } & \textbf{ Not Provided }\% \\
+
+        \hline
+        \multicolumn{2}{|r|}{\textbf{Total Means of Finance}} & \rupee{ Not Provided } & \textbf{ Not Provided }\% \\
+        \hline
+    \end{tabular}
+    \vspace{0.5cm}
+
+    \item \textbf{5.3. Working Capital Requirement (First Year):}
+    \begin{tabular}{|p{7cm}|>{\centering\arraybackslash}p{4cm}|}
+        \hline
+        \textbf{Particulars} & \textbf{Amount (₹)} \\
+            \hline
+    Raw Materials Stock & \rupee{ Not Provided } \\
+
+            \hline
+    Work-in-Progress & \rupee{ Not Provided } \\
+
+            \hline
+    Finished Goods Stock & \rupee{ Not Provided } \\
+
+            \hline
+    Sundry Debtors (Receivables) & \rupee{ Not Provided } \\
+
+            \hline
+    Less: Sundry Creditors (Payables) & \rupee{ Not Provided } \\
+
+        \hline
+        \textbf{Net Working Capital} & \rupee{ Not Provided } \\
+        \hline
+    \end{tabular}
+    \vspace{0.5cm}
+
+    \item \textbf{5.4. Projected Profitability (for 5 Years):} \multilineitem{ Not Provided }
+    \item \textbf{5.5. Projected Cash Flow (for 5 Years):} \multilineitem{ Not Provided }
+    \item \textbf{5.6. Key Financial Ratios:}
+    \begin{tabular}{|p{5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+        \hline
+        \textbf{Ratio} & \textbf{Year 1} & \textbf{Year 3} & \textbf{Year 5} \\
+            \hline
+    Debt-Service Coverage Ratio (DSCR) & \textbf{ Not Provided } & \textbf{ Not Provided } & \textbf{ Not Provided } \\
+
+            \hline
+    Break-Even Point (BEP) (\% of capacity) & \textbf{ Not Provided } & \textbf{ Not Provided } & \textbf{ Not Provided } \\
+
+            \hline
+    Debt-Equity Ratio & \textbf{ Not Provided } & \textbf{ Not Provided } & \textbf{ Not Provided } \\
+
+        \hline
+        Internal Rate of Return (IRR)\% & \multicolumn{3}{l|}{\textbf{ Not Provided }} \\
+        \hline
+    \end{tabular}
+\end{dprlistbullet}
+
+\section*{6. Implementation Plan}
+\begin{dprlistbullet}
+    \item \textbf{6.1. Implementation Schedule (Gantt Chart):}
+    \begin{tabular}{|p{4.5cm}|*{6}{>{\centering\arraybackslash}p{1.5cm}|}}
+        \hline
+        \textbf{Activity} & \textbf{Month 1} & \textbf{Month 2} & \textbf{Month 3} & \textbf{Month 4} & \textbf{Month 5} & \textbf{Month 6} \\
+            \hline
+    Loan Sanction
+        &         &         &         &         &         &  \\
+
+            \hline
+    Site Development
+        &         &         &         &         &         &  \\
+
+            \hline
+    Civil Construction
+        &         &         &         &         &         &  \\
+
+            \hline
+    Machinery Order
+        &         &         &         &         &         &  \\
+
+            \hline
+    Machinery Arrival \& Installation
+        &         &         &         &         &         &  \\
+
+            \hline
+    Power \& Utility Connection
+        &         &         &         &         &         &  \\
+
+            \hline
+    Trial Production
+        &         &         &         &         &         &  \\
+
+            \hline
+    Commercial Launch
+        &         &         &         &         &         &  \\
+
+        \hline
+    \end{tabular}
+\end{dprlistbullet}
+
+\section*{7. SWOT Analysis}
+\begin{dprlistbullet}
+    \item \textbf{Strengths:} \multilineitem{ Not Provided }
+    \item \textbf{Weaknesses:} \multilineitem{ Not Provided }
+    \item \textbf{Opportunities:} \multilineitem{ Not Provided }
+    \item \textbf{Threats:} \multilineitem{ Not Provided }
+\end{dprlistbullet}
+
+\section*{8. Social \& Environmental Impact}
+\begin{dprlistbullet}
+    \item \textbf{8.1. Employment Generation:}
+    \begin{dprlistbullet}
+        \item Direct Employment: Not Provided
+        \item Indirect Employment: \multilineitem{ Not Provided }
+    \end{dprlistbullet}
+    \item \textbf{8.2. Environmental Impact:}
+    \begin{dprlistbullet}
+        \item Effluent/Waste Generation: \multilineitem{ Not Provided }
+        \item Pollution Control Measures: \multilineitem{ Not Provided }
+        \item Statutory Clearances: \multilineitem{ Not Provided }
+    \end{dprlistbullet}
+\end{dprlistbullet}
+
+\section*{9. Declaration}
+I/We, \textbf{ Not Provided }, hereby declare that the information provided in this Detailed Project Report is true and correct to the best of my/our knowledge and belief.
+
+\vspace{1cm}
+\line(1,0){6cm}
+\textbf{Signature:}
+
+\vspace{0.2cm}
+Name: Not Provided
+
+\vspace{0.2cm}
+Date: Not Provided
+
+\vspace{0.2cm}
+Place: Not Provided
+
+\section*{10. Annexures (List of Attachments)}
+\begin{dprlistbullet}
+    \item Promoter's KYC Documents (PAN, Aadhaar, Photo).
+    \item Business Registration Certificate.
+    \item Quotations for Plant \& Machinery.
+    \item Land Ownership Documents or Lease Agreement.
+    \item Architect's Plan and Building Cost Estimate.
+    \item Detailed Financial Projections (P\&L, Cash Flow, Balance Sheet for 5 years).
+    \item Market Survey Reports (if any).
+    \item Copies of any required Licenses/Permits.
+\end{dprlistbullet}
+
+\end{document}
+📄 Debug LaTeX saved: /home/cyto/dev/SUBSIDY/backend/services/debug.tex
+debug pdf made
+moved to /home/cyto/dev/SUBSIDY/backend/services/dpr.pdf
+✅ PDF generated successfully: /home/cyto/dev/SUBSIDY/backend/services/dpr.pdf

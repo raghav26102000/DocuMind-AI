@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pipeline Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#6750a4',
+                        'primary-container': '#eaddff',
+                        'secondary': '#625b71',
+                        'secondary-container': '#e8def8',
+                        'surface': '#fef7ff',
+                        'surface-variant': '#e7e0ec',
+                        'on-surface': '#1d1b20',
+                        'on-surface-variant': '#49454f',
+                        'outline': '#79747e',
+                        'success': '#166534',
+                        'success-container': '#dcfce7',
+                        'warning': '#ca8a04',
+                        'warning-container': '#fef3c7',
+                        'error': '#dc2626',
+                        'error-container': '#fee2e2'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface min-h-screen">
+    <div x-data="pipelineApp()" x-init="loadFromCookies()" class="container mx-auto p-6 max-w-4xl">
+        <!-- Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-on-surface mb-2">Pipeline Management</h1>
+            <p class="text-on-surface-variant">Manage and monitor your pipeline processes</p>
+        </div>
+
+        <!-- Authentication Section -->
+        <div class="bg-white rounded-xl shadow-sm border border-outline/20 p-6 mb-6">
+            <h2 class="text-xl font-semibold text-on-surface mb-4">Authentication</h2>
+            <div class="flex gap-4 items-end">
+                <div class="flex-1">
+                    <label class="block text-sm font-medium text-on-surface-variant mb-2">Bearer Token</label>
+                    <input 
+                        x-model="token" 
+                        type="password" 
+                        placeholder="Enter your bearer token"
+                        class="w-full px-4 py-3 border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    >
+                </div>
+                <button 
+                    @click="testAuth()"
+                    :disabled="!token || loading"
+                    class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                >
+                    <span x-show="!loading">Test Auth</span>
+                    <span x-show="loading" class="flex items-center gap-2">
+                        <svg class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Testing...
+                    </span>
+                </button>
+            </div>
+            <div x-show="authStatus" class="mt-3">
+                <div x-show="authStatus === 'success'" class="text-success text-sm">✓ Authentication successful</div>
+                <div x-show="authStatus === 'error'" class="text-error text-sm">✗ Authentication failed</div>
+            </div>
+        </div>
+
+        <!-- Active Request ID Display (Controlled by JS) -->
+        <div x-show="currentRequestId" x-transition class="bg-primary-container rounded-xl border border-primary/20 p-4 mb-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="font-semibold text-primary mb-1">Last Active Pipeline Request</h3>
+                    <p class="text-primary/70 text-sm font-mono" x-text="currentRequestId"></p>
+                </div>
+                <button 
+                    @click="clearRequestId()"
+                    class="px-3 py-1 text-primary hover:bg-primary/10 rounded text-sm transition-all"
+                >
+                    Clear & Start New
+                </button>
+            </div>
+        </div>
+
+        <!-- Quick Actions & Request ID Input -->
+        <div class="bg-white rounded-xl shadow-sm border border-outline/20 p-6 mb-6">
+            <h2 class="text-xl font-semibold text-on-surface mb-4">Pipeline Control</h2>
+            <div class="flex flex-col sm:flex-row gap-4 flex-wrap">
+                <!-- Request ID Input is now the primary controller -->
+                <div class="flex-1">
+                     <label class="block text-sm font-medium text-on-surface-variant mb-2">Request ID</label>
+                    <div class="flex gap-2 items-center">
+                        <input 
+                            x-model="statusRequestId"
+                            @input.debounce.500ms="syncRequestId()"
+                            type="text" 
+                            placeholder="Enter ID or run Step 1"
+                            class="w-full px-3 py-2 border border-outline rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-sm"
+                        >
+                        <button 
+                            @click="checkStatus()"
+                            :disabled="!token || !statusRequestId || loading"
+                            class="px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm"
+                        >
+                            Check Status
+                        </button>
+                    </div>
+                </div>
+                <!-- Run All Steps Button -->
+                <div class="flex-shrink-0">
+                    <label class="block text-sm font-medium text-on-surface-variant mb-2 sm:invisible">Run All</label>
+                    <button 
+                        @click="runAllSteps()"
+                        :disabled="!token || loading || !statusRequestId"
+                        class="w-full px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+                    >
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>Run All Steps</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Individual Steps -->
+        <div class="bg-white rounded-xl shadow-sm border border-outline/20 p-6 mb-6">
+            <h2 class="text-xl font-semibold text-on-surface mb-4">Pipeline Steps</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <template x-for="step in Object.keys(stepDescriptions)" :key="step">
+                    <div class="border border-outline/20 rounded-lg p-4 hover:shadow-md transition-shadow flex flex-col">
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-3">
+                                <div class="flex-1">
+                                    <h3 class="font-semibold text-on-surface mb-1" x-text="`Step ${step}`"></h3>
+                                    <p class="text-sm text-on-surface-variant mb-2" x-text="stepDescriptions[step].title"></p>
+                                    <p class="text-xs text-on-surface-variant" x-text="stepDescriptions[step].description"></p>
+                                </div>
+                                <div 
+                                    x-show="stepStatus[step]"
+                                    :class="{
+                                        'bg-success-container text-success': stepStatus[step] === 'success',
+                                        'bg-warning-container text-warning': stepStatus[step] === 'partial',
+                                        'bg-error-container text-error': stepStatus[step] === 'error'
+                                    }"
+                                    class="px-2 py-1 rounded text-xs font-medium ml-2"
+                                    x-text="stepStatus[step] === 'success' ? 'Success' : stepStatus[step] === 'partial' ? 'Partial' : 'Error'"
+                                ></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-auto">
+                            <button 
+                                @click="runStep(step)"
+                                :disabled="!token || loading || (step > 1 && !statusRequestId) || stepLoading[step]"
+                                :class="{
+                                    'bg-primary text-white hover:bg-primary/90': step == 1,
+                                    'bg-primary-container text-primary hover:bg-primary/20': step > 1,
+                                    'opacity-50 cursor-not-allowed': !token || loading || (step > 1 && !statusRequestId) || stepLoading[step]
+                                }"
+                                class="w-full px-4 py-2 rounded-lg transition-all text-sm font-medium"
+                            >
+                                <span x-show="!stepLoading[step]" x-text="`Run Step ${step}`"></span>
+                                <span x-show="stepLoading[step]" class="flex items-center justify-center gap-2">
+                                    <svg class="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                    Running...
+                                </span>
+                            </button>
+                            
+                            <div x-show="step > 1 && !statusRequestId" class="mt-2 text-xs text-center text-warning">
+                                ⚠️ Requires a Request ID
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <!-- Status Display -->
+        <div x-show="statusData" x-transition class="bg-white rounded-xl shadow-sm border border-outline/20 p-6 mb-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-on-surface">Request Status</h2>
+                <button 
+                    @click="deleteRequest()"
+                    :disabled="loading"
+                    class="px-4 py-2 bg-error text-white rounded-lg hover:bg-error/90 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-sm flex items-center gap-2"
+                >
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm4 0a1 1 0 012 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd"></path></svg>
+                    Delete Request
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-on-surface-variant">Request ID:</span>
+                            <span class="font-mono text-sm" x-text="statusData?.request_id"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-on-surface-variant">Status:</span>
+                            <span 
+                                :class="{
+                                    'text-success': statusData?.status === 'completed',
+                                    'text-warning': statusData?.status === 'processing',
+                                    'text-error': statusData?.status === 'failed'
+                                }"
+                                class="font-medium capitalize"
+                                x-text="statusData?.status"
+                            ></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-on-surface-variant">Current Step:</span>
+                            <span x-text="statusData?.step"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-on-surface-variant">Last Modified:</span>
+                            <span class="text-sm" x-text="statusData?.lastModifiedOn"></span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-on-surface-variant block mb-2">Slugs Queue:</span>
+                            <div class="bg-surface-variant/50 rounded p-2 text-sm font-mono max-h-20 overflow-y-auto">
+                                <span x-text="Array.isArray(statusData?.slugs_queue) ? statusData.slugs_queue.join(', ') : statusData?.slugs_queue || 'Empty'"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="text-on-surface-variant block mb-2">Processing Queue:</span>
+                            <div class="bg-surface-variant/50 rounded p-2 text-sm font-mono max-h-20 overflow-y-auto">
+                                <span x-text="Array.isArray(statusData?.processing_queue) ? statusData.processing_queue.join(', ') : statusData?.processing_queue || 'Empty'"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages/Logs -->
+        <div x-show="messages.length > 0" class="bg-white rounded-xl shadow-sm border border-outline/20 p-6">
+            <h2 class="text-xl font-semibold text-on-surface mb-4">Messages</h2>
+            <div class="space-y-3 max-h-64 overflow-y-auto">
+                <template x-for="message in messages.slice().reverse()" :key="message.id">
+                    <div 
+                        :class="{
+                            'bg-success-container border-success/20': message.type === 'success',
+                            'bg-warning-container border-warning/20': message.type === 'warning',
+                            'bg-error-container border-error/20': message.type === 'error',
+                            'bg-surface-variant border-outline/20': message.type === 'info'
+                        }"
+                        class="p-3 rounded-lg border text-sm"
+                    >
+                        <div class="flex justify-between items-start gap-2">
+                            <span x-text="message.text"></span>
+                            <span class="text-xs opacity-60 whitespace-nowrap" x-text="message.time"></span>
+                        </div>
+                        <div x-show="message.requestId" class="mt-1 font-mono text-xs opacity-80">
+                            Request ID: <span x-text="message.requestId"></span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function pipelineApp() {
+            return {
+                token: '',
+                loading: false,
+                authStatus: null,
+                statusRequestId: '', // This is the master ID from the input field
+                statusData: null,
+                currentRequestId: null, // This is mainly for the "Last Active" display
+                stepStatus: {},
+                stepLoading: {},
+                messages: [],
+                stepDescriptions: {
+                    1: { title: "Get All Schemes", description: "Enqueues all scheme slugs for processing. Creates initial pipeline request." },
+                    2: { title: "Download Schemes", description: "Downloads detailed scheme content to pipeline_api_data using scheme_downloader." },
+                    3: { title: "Upload to S3", description: "Reads from pipeline_api_data, uploads references to S3, creates processing_queue." },
+                    4: { title: "Upload to MongoDB", description: "Processes queue items from S3 and uploads reference content to mongodb.references." },
+                    5: { title: "Upload Schemes", description: "Parses pipeline_api_data to GovernmentScheme format and uploads to MongoDB." },
+                    6: { title: "Update Images", description: "Updates image URLs in the uploaded schemes for proper display." }
+                },
+                
+                loadFromCookies() {
+                    const savedRequestId = this.getCookie('pipeline_request_id');
+                    if (savedRequestId) {
+                        this.currentRequestId = savedRequestId;
+                        this.statusRequestId = savedRequestId; // Sync input field on load
+                    }
+                    const savedToken = this.getCookie('pipeline_token');
+                    if (savedToken) {
+                        this.token = savedToken;
+                    }
+                },
+                
+                setCookie(name, value, days = 7) {
+                    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+                    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Strict`;
+                },
+                
+                getCookie(name) {
+                    return document.cookie.split('; ').reduce((r, v) => {
+                        const parts = v.split('=');
+                        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+                    }, '');
+                },
+                
+                // NEW: Syncs the manually entered ID to the cookie
+                syncRequestId() {
+                    if (this.statusRequestId) {
+                        this.currentRequestId = this.statusRequestId;
+                        this.setCookie('pipeline_request_id', this.statusRequestId);
+                    }
+                },
+
+                clearRequestId() {
+                    this.currentRequestId = null;
+                    this.statusRequestId = '';
+                    this.stepStatus = {};
+                    this.statusData = null;
+                    document.cookie = 'pipeline_request_id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                    this.addMessage('Pipeline request cleared. Ready to start new pipeline.', 'info');
+                },
+                
+                async testAuth() {
+                    if (!this.token) return;
+                    this.loading = true;
+                    this.authStatus = null;
+                    try {
+                        const response = await fetch('/', {
+                            method: 'GET',
+                            headers: { 'Authorization': `Bearer ${this.token}`, 'Content-Type': 'application/json' }
+                        });
+                        if (response.status === 401 || response.status === 403) {
+                            this.authStatus = 'error';
+                            this.addMessage('Authentication failed - Invalid token', 'error');
+                        } else {
+                            this.authStatus = 'success';
+                            this.addMessage('Authentication successful', 'success');
+                            this.setCookie('pipeline_token', this.token);
+                        }
+                    } catch (error) {
+                        this.authStatus = 'error';
+                        this.addMessage(`Auth test failed: ${error.message}`, 'error');
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+                
+                async runStep(step) {
+                    if (!this.token) {
+                        this.addMessage('Please provide a bearer token', 'error');
+                        return;
+                    }
+                    
+                    // UPDATED: Check against the input field's value for steps > 1
+                    const requestId = this.statusRequestId;
+                    if (step > 1 && !requestId) {
+                        this.addMessage(`A Request ID must be provided to run Step ${step}`, 'error');
+                        return;
+                    }
+                    
+                    this.stepLoading[step] = true;
+                    this.stepStatus[step] = null;
+                    
+                    try {
+                        const url = new URL('/', window.location.origin);
+                        url.searchParams.append('step', step);
+                        // UPDATED: Always use the ID from the input field for steps > 1
+                        if (step > 1 && requestId) {
+                            url.searchParams.append('request_id', requestId);
+                        }
+                        
+                        const response = await fetch(url, {
+                            method: 'GET',
+                            headers: { 'Authorization': `Bearer ${this.token}`, 'Content-Type': 'application/json' }
+                        });
+                        
+                        const data = await response.json();
+                        
+                        if (data.status === 0) {
+                            this.stepStatus[step] = 'success';
+                            this.addMessage(`Step ${step} completed successfully`, 'success', data.data?.request_id || requestId);
+                            
+                            // UPDATED: When Step 1 succeeds, it sets BOTH the display and input field IDs
+                            if (step == 1 && data.data?.request_id) {
+                                this.currentRequestId = data.data.request_id;
+                                this.statusRequestId = data.data.request_id;
+                                this.setCookie('pipeline_request_id', data.data.request_id);
+                                this.addMessage(`New pipeline started with ID: ${data.data.request_id}`, 'info');
+                            }
+                        } else if (data.status === 2) {
+                            this.stepStatus[step] = 'partial';
+                            this.addMessage(`Step ${step} completed with partial success`, 'warning', data.data?.request_id || requestId);
+                        } else {
+                            this.stepStatus[step] = 'error';
+                            this.addMessage(`Step ${step} failed: ${data.message}`, 'error', data.data?.request_id || requestId);
+                        }
+                    } catch (error) {
+                        this.stepStatus[step] = 'error';
+                        this.addMessage(`Step ${step} error: ${error.message}`, 'error');
+                    } finally {
+                        this.stepLoading[step] = false;
+                    }
+                },
+                
+                async runAllSteps() {
+                    // UPDATED: Check the input field before running
+                    if (!this.statusRequestId) {
+                        this.addMessage('Cannot run all steps. Please provide a Request ID in the input field or run Step 1 first.', 'error');
+                        return;
+                    }
+                    
+                    this.addMessage(`Running all steps for pipeline: ${this.statusRequestId}`, 'info');
+                    
+                    // Start from step 2 since step 1 is for creation
+                    for (let step = 2; step <= 6; step++) {
+                        await this.runStep(step);
+                        
+                        if (this.stepStatus[step] === 'error') {
+                            this.addMessage(`Stopping at Step ${step} due to error`, 'error');
+                            break;
+                        }
+                        
+                        if (step < 6) {
+                            await new Promise(resolve => setTimeout(resolve, 500)); // Small delay
+                        }
+                    }
+                    this.addMessage('Finished running all steps.', 'info');
+                },
+                
+                async checkStatus() {
+                    const requestId = this.statusRequestId; // Always use the input field value
+                    if (!this.token || !requestId) return;
+                    
+                    this.loading = true;
+                    this.statusData = null; // Clear previous status
+                    try {
+                        const response = await fetch(`/request?request_id=${requestId}`, {
+                            method: 'GET',
+                            headers: { 'Authorization': `Bearer ${this.token}`, 'Content-Type': 'application/json' }
+                        });
+                        
+                        if (response.ok) {
+                            const result = await response.json();
+                            this.statusData = result.data;
+                            this.addMessage(`Status retrieved for request ${requestId}`, 'success');
+                        } else {
+                            const errorData = await response.json().catch(() => ({ message: response.statusText }));
+                            this.addMessage(`Failed to retrieve status for ${requestId}: ${errorData.message}`, 'error');
+                            this.statusData = null;
+                        }
+                    } catch (error) {
+                        this.addMessage(`Status check error: ${error.message}`, 'error');
+                        this.statusData = null;
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+
+                async deleteRequest() {
+                    const requestId = this.statusData?.request_id;
+                    if (!this.token || !requestId) {
+                        this.addMessage('No request loaded to delete.', 'warning');
+                        return;
+                    }
+
+                    // For a better user experience in a real app, replace confirm() with a custom modal dialog.
+                    if (!confirm(`Are you sure you want to delete the request: ${requestId}? This action cannot be undone.`)) {
+                        return;
+                    }
+                    
+                    this.loading = true;
+                    try {
+                        const response = await fetch(`/request?request_id=${requestId}`, {
+                            method: 'DELETE',
+                            headers: { 'Authorization': `Bearer ${this.token}` }
+                        });
+
+                        if (response.ok) {
+                            this.addMessage(`Request ${requestId} deleted successfully.`, 'success');
+                            this.statusData = null;
+                            if (this.statusRequestId === requestId) {
+                                this.statusRequestId = '';
+                            }
+                            if (this.currentRequestId === requestId) {
+                                this.clearRequestId();
+                            }
+                        } else {
+                            const errorData = await response.json().catch(() => ({ message: response.statusText }));
+                            this.addMessage(`Failed to delete request ${requestId}: ${errorData.message}`, 'error');
+                        }
+                    } catch (error) {
+                        this.addMessage(`Error deleting request: ${error.message}`, 'error');
+                    } finally {
+                        this.loading = false;
+                    }
+                },
+                
+                addMessage(text, type = 'info', requestId = null) {
+                    this.messages.push({
+                        id: Date.now() + Math.random(),
+                        text,
+                        type,
+                        requestId,
+                        time: new Date().toLocaleTimeString()
+                    });
+                    if (this.messages.length > 50) {
+                        this.messages.shift();
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
